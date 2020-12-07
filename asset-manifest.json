@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/react-portfolio-website/static/js/main.548e4463.chunk.js",
-    "main.js.map": "/react-portfolio-website/static/js/main.548e4463.chunk.js.map",
+    "main.js": "/react-portfolio-website/static/js/main.be2f34ce.chunk.js",
+    "main.js.map": "/react-portfolio-website/static/js/main.be2f34ce.chunk.js.map",
     "runtime-main.js": "/react-portfolio-website/static/js/runtime-main.c9f61f80.js",
     "runtime-main.js.map": "/react-portfolio-website/static/js/runtime-main.c9f61f80.js.map",
-    "static/js/2.2d43e54f.chunk.js": "/react-portfolio-website/static/js/2.2d43e54f.chunk.js",
-    "static/js/2.2d43e54f.chunk.js.map": "/react-portfolio-website/static/js/2.2d43e54f.chunk.js.map",
+    "static/js/2.5f94eda3.chunk.js": "/react-portfolio-website/static/js/2.5f94eda3.chunk.js",
+    "static/js/2.5f94eda3.chunk.js.map": "/react-portfolio-website/static/js/2.5f94eda3.chunk.js.map",
     "index.html": "/react-portfolio-website/index.html",
-    "static/js/2.2d43e54f.chunk.js.LICENSE.txt": "/react-portfolio-website/static/js/2.2d43e54f.chunk.js.LICENSE.txt",
+    "static/js/2.5f94eda3.chunk.js.LICENSE.txt": "/react-portfolio-website/static/js/2.5f94eda3.chunk.js.LICENSE.txt",
     "static/media/android.svg": "/react-portfolio-website/static/media/android.0feb8167.svg",
     "static/media/azure.svg": "/react-portfolio-website/static/media/azure.16afec27.svg",
     "static/media/books.svg": "/react-portfolio-website/static/media/books.222a1176.svg",
@@ -38,7 +38,7 @@
   },
   "entrypoints": [
     "static/js/runtime-main.c9f61f80.js",
-    "static/js/2.2d43e54f.chunk.js",
-    "static/js/main.548e4463.chunk.js"
+    "static/js/2.5f94eda3.chunk.js",
+    "static/js/main.be2f34ce.chunk.js"
   ]
 }
