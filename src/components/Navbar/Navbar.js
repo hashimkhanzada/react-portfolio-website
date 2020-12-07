@@ -80,19 +80,7 @@ function Navbar() {
                   <NavLinks>Projects</NavLinks>
                 </LinkS>
               </NavItem>
-              <NavItem>
-                <LinkS
-                  activeClass="active"
-                  to="contact"
-                  spy={true}
-                  smooth={true}
-                  offset={-70}
-                  duration={500}
-                  onClick={closeMobileMenu}
-                >
-                  <NavLinks>Contact</NavLinks>
-                </LinkS>
-              </NavItem>
+              <NavItem></NavItem>
               <NavItem>
                 <SocialIconLink
                   href={"https://github.com/hashimkhanzada"}
