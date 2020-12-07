@@ -31,6 +31,10 @@ export const NavLogo = styled(Link)`
   font-size: 2rem;
   display: flex;
   align-items: center;
+
+  @media screen and (max-width: 960px) {
+    font-size: 1.5rem;
+  }
 `;
 
 export const NavIcon = styled(FaReact)`

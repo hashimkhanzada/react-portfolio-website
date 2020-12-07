@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { FaBars, FaTimes, FaGithub, FaLinkedin } from "react-icons/fa";
 import { IconContext } from "react-icons/lib";
 import { Link as LinkS, animateScroll as scroll } from "react-scroll";
+import { HiOutlineMail } from "react-icons/hi";
 
 import {
   Nav,
@@ -45,10 +46,7 @@ function Navbar() {
       <IconContext.Provider value={{ color: "#fff" }}>
         <Nav>
           <NavbarContainer>
-            <NavLogo
-              to="/react-portfolio-website"
-              onClick={(closeMobileMenu, scrollToTop)}
-            >
+            <NavLogo to="#" onClick={(closeMobileMenu, scrollToTop)}>
               <NavIcon />
               HASHIM KHANZADA
             </NavLogo>
@@ -85,7 +83,7 @@ function Navbar() {
               <NavItem>
                 <LinkS
                   activeClass="active"
-                  to="planStudyOptions"
+                  to="contact"
                   spy={true}
                   smooth={true}
                   offset={-70}
@@ -113,6 +111,15 @@ function Navbar() {
                   onClick={closeMobileMenu}
                 >
                   <FaLinkedin />
+                </SocialIconLink>
+              </NavItem>
+              <NavItem>
+                <SocialIconLink
+                  href={"mailto:hashimkhanzada@gmail.com"}
+                  aria-label="Email"
+                  onClick={closeMobileMenu}
+                >
+                  <HiOutlineMail />
                 </SocialIconLink>
               </NavItem>
             </NavMenu>

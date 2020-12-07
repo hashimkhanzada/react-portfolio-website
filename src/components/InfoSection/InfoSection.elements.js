@@ -55,9 +55,10 @@ export const TextWrapper = styled.div`
 `;
 
 export const ImgWrapper = styled.div`
-  max-width: 555px;
+  max-width: ${({ skills }) => (skills ? "400px" : "555px")};
   display: flex;
   justify-content: ${({ start }) => (start ? "flex-start" : "flex-end")};
+  background: ${({ skills }) => (skills ? "#fff" : null)};
 `;
 
 export const TopLine = styled.div`
@@ -72,6 +73,15 @@ export const TopLine = styled.div`
 export const Img = styled.img`
   padding-right: 0;
   border: 0;
+  max-width: 100%;
+  vertical-align: middle;
+  display: inline-block;
+  max-height: 500px;
+`;
+
+export const Skills = styled.ul`
+  padding-right: 0;
+  border: solid 1px white;
   max-width: 100%;
   vertical-align: middle;
   display: inline-block;
@@ -128,8 +138,8 @@ export const TechWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  margin-bottom: 20px;
-  margin-top: 10px;
+  margin-bottom: ${({ skills }) => (skills ? null : "20px")};
+  margin-top: 20px;
 `;
 
 export const Tech = styled.div`
@@ -140,10 +150,11 @@ export const Tech = styled.div`
 
 export const TechImage = styled.img`
   color: black;
-  width: 60px;
+  width: ${({ skills }) => (skills ? "80px" : "60px")};
   vertical-align: middle;
   display: inline-block;
   height: 60px;
   background: white;
   padding: 5px;
+  margin: ${({ skills }) => (skills ? "10px 0px 10px 9px" : null)};
 `;
