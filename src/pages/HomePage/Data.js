@@ -103,7 +103,7 @@ export const dietTrackerSection = {
   buttonLabel: "Source Code",
   buttonLabel2: "Demo",
   btnLink1: "https://github.com/hashimkhanzada/Nutritional_Software",
-  btnLink2: "https://youtu.be/5iftCEpZ2z8",
+  btnLink2: "https://youtu.be/h5HO1Ii3xj8",
   imgStart: "",
   img: require("../../images/food.svg").default,
   img1: require("../../images/dotnet.svg").default,
