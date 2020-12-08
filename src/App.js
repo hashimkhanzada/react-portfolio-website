@@ -10,7 +10,7 @@ function App() {
       <GlobalStyle />
       <Navbar />
       <Switch>
-        <Route path="/react-portfolio-website" exact component={Home} />
+        <Route path="/" exact component={Home} />
       </Switch>
       <Footer />
     </Router>
