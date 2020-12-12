@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FaBars, FaTimes, FaGithub, FaLinkedin } from "react-icons/fa";
 import { IconContext } from "react-icons/lib";
-import { Link as LinkS, animateScroll as scroll } from "react-scroll";
+import { Link, animateScroll as scroll } from "react-scroll";
 import { HiOutlineMail } from "react-icons/hi";
 
 import {
@@ -55,7 +55,7 @@ function Navbar() {
             </MobileIcon>
             <NavMenu onClick={handleClick} click={click}>
               <NavItem>
-                <LinkS
+                <Link
                   activeClass="active"
                   to="aboutMe"
                   spy={true}
@@ -65,10 +65,10 @@ function Navbar() {
                   onClick={closeMobileMenu}
                 >
                   <NavLinks>About</NavLinks>
-                </LinkS>
+                </Link>
               </NavItem>
               <NavItem>
-                <LinkS
+                <Link
                   activeClass="active"
                   to="dietTracker"
                   spy={true}
@@ -78,9 +78,8 @@ function Navbar() {
                   onClick={closeMobileMenu}
                 >
                   <NavLinks>Projects</NavLinks>
-                </LinkS>
+                </Link>
               </NavItem>
-              <NavItem></NavItem>
               <NavItem>
                 <SocialIconLink
                   href={"https://github.com/hashimkhanzada"}

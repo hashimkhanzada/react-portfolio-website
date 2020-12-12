@@ -65,11 +65,12 @@ export const NavMenu = styled.ul`
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 90vh;
+    height: ${({ click }) => (click ? "91vh" : 0)};
     position: absolute;
     top: 80px;
-    right: ${({ click }) => (click ? 0 : "-100%")};
-    opacity: 1;
+    visibility: ${({ click }) => (click ? "visibile" : "hidden")};
+    right: 0;
+    opacity: ${({ click }) => (click ? 1 : 0)};
     transition: all 0.5s ease;
     background: #101522;
   }

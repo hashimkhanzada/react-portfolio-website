@@ -157,4 +157,12 @@ export const TechImage = styled.img`
   background: white;
   padding: 5px;
   margin: ${({ skills }) => (skills ? "10px 0px 10px 9px" : null)};
+
+  @media screen and (max-width: 442px) {
+    margin: ${({ skills }) => (skills ? "10px 17px 10px 17px" : null)};
+  }
+
+  @media screen and (max-width: 422px) {
+    margin: ${({ skills }) => (skills ? "10px 12px 10px 12px" : null)};
+  }
 `;
