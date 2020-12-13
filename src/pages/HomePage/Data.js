@@ -36,47 +36,89 @@ export const aboutMeSection = {
   buttonLabel: "View Resume",
   btnLink1: require("../../images/hashim-cv.pdf").default,
   imgStart: "start",
+  logoInfo: [
+    {
+      imgUrl: require("../../images/dotnet.svg").default,
+      tipText: ".Net Core",
+    },
+    {
+      imgUrl: require("../../images/csharp.svg").default,
+      tipText: "C Sharp",
+    },
+    {
+      imgUrl: require("../../images/sql.svg").default,
+      tipText: "SQL Server",
+    },
+    {
+      imgUrl: require("../../images/jquery.svg").default,
+      tipText: "jQuery",
+    },
+    {
+      imgUrl: require("../../images/react.svg").default,
+      tipText: "React Js",
+    },
+    {
+      imgUrl: require("../../images/html.svg").default,
+      tipText: "HTML",
+    },
+    {
+      imgUrl: require("../../images/css.svg").default,
+      tipText: "CSS",
+    },
+    {
+      imgUrl: require("../../images/javascript.svg").default,
+      tipText: "JavaScript",
+    },
+    {
+      imgUrl: require("../../images/azure.svg").default,
+      tipText: "Azure",
+    },
+    {
+      imgUrl: require("../../images/firebase.svg").default,
+      tipText: "Firebase",
+    },
+    {
+      imgUrl: require("../../images/vue.svg").default,
+      tipText: "Vue Js",
+    },
+    {
+      imgUrl: require("../../images/vuetify.svg").default,
+      tipText: "Vuetify",
+    },
+    {
+      imgUrl: require("../../images/kotlin.svg").default,
+      tipText: "Kotlin",
+    },
+    {
+      imgUrl: require("../../images/materialui.svg").default,
+      tipText: "Material UI",
+    },
+    {
+      imgUrl: require("../../images/xamarin.svg").default,
+      tipText: "Xamarin",
+    },
+    {
+      imgUrl: require("../../images/caliburnmicro.svg").default,
+      tipText: "Caliburn Micro",
+    },
+    {
+      imgUrl: require("../../images/java.svg").default,
+      tipText: "Java",
+    },
+    {
+      imgUrl: require("../../images/dapper.svg").default,
+      tipText: "Dapper",
+    },
+    {
+      imgUrl: require("../../images/efcore.svg").default,
+      tipText: "Entity Framework Core",
+    },
+    {
+      imgUrl: require("../../images/materialdesignxaml.svg").default,
+      tipText: "Material Design XAML",
+    },
+  ],
 
-  img1: require("../../images/dotnet.svg").default,
-  tip1: ".Net Core",
-  img2: require("../../images/csharp.svg").default,
-  tip2: "C Sharp",
-  img3: require("../../images/sql.svg").default,
-  tip3: "SQL Server",
-  img4: require("../../images/jquery.svg").default,
-  tip4: " jQuery ",
-  img5: require("../../images/react.svg").default,
-  tip5: " React Js",
-  img6: require("../../images/html.svg").default,
-  tip6: " HTML ",
-  img7: require("../../images/css.svg").default,
-  tip7: " CSS ",
-  img8: require("../../images/javascript.svg").default,
-  tip8: " JavaScript ",
-  img9: require("../../images/azure.svg").default,
-  tip9: " Azure ",
-  img10: require("../../images/firebase.svg").default,
-  tip10: " Firebase ",
-  img11: require("../../images/vue.svg").default,
-  tip11: " Vue Js ",
-  img12: require("../../images/vuetify.svg").default,
-  tip12: " Vuetify ",
-  img13: require("../../images/kotlin.svg").default,
-  tip13: " Kotlin ",
-  img14: require("../../images/materialui.svg").default,
-  tip14: "Material UI  ",
-  img15: require("../../images/xamarin.svg").default,
-  tip15: " Xamarin ",
-  img16: require("../../images/caliburnmicro.svg").default,
-  tip16: " Caliburn Micro ",
-  img17: require("../../images/java.svg").default,
-  tip17: " Java ",
-  img18: require("../../images/dapper.svg").default,
-  tip18: " Dapper ",
-  img19: require("../../images/efcore.svg").default,
-  tip19: " Entity Framework Core ",
-  img20: require("../../images/materialdesignxaml.svg").default,
-  tip20: " Material Design XAML ",
   alt: "Skills",
   start: "true",
 };
@@ -106,24 +148,40 @@ export const dietTrackerSection = {
   btnLink2: "https://youtu.be/h5HO1Ii3xj8",
   imgStart: "",
   img: require("../../images/food.svg").default,
-  img1: require("../../images/dotnet.svg").default,
-  tip1: ".Net Core",
-  img2: require("../../images/csharp.svg").default,
-  tip2: "C Sharp",
-  img3: require("../../images/sql.svg").default,
-  tip3: "SQL Server",
-  img4: require("../../images/jquery.svg").default,
-  tip4: "jQuery",
-  img5: require("../../images/javascript.svg").default,
-  tip5: "JavaScript",
-  img6: require("../../images/html.svg").default,
-  tip6: "HTML",
-  img7: require("../../images/css.svg").default,
-  tip7: "CSS",
-  img8: require("../../images/azure.svg").default,
-  tip8: "Azure",
-
-  alt: "Vault",
+  logoInfo: [
+    {
+      imgUrl: require("../../images/dotnet.svg").default,
+      tipText: ".Net Core",
+    },
+    {
+      imgUrl: require("../../images/csharp.svg").default,
+      tipText: "C Sharp",
+    },
+    {
+      imgUrl: require("../../images/sql.svg").default,
+      tipText: "SQL Server",
+    },
+    {
+      imgUrl: require("../../images/jquery.svg").default,
+      tipText: "jQuery",
+    },
+    {
+      imgUrl: require("../../images/javascript.svg").default,
+      tipText: "JavaScript",
+    },
+    {
+      imgUrl: require("../../images/html.svg").default,
+      tipText: "HTML",
+    },
+    {
+      imgUrl: require("../../images/css.svg").default,
+      tipText: "CSS",
+    },
+    {
+      imgUrl: require("../../images/azure.svg").default,
+      tipText: "Azure",
+    },
+  ],
   start: "",
 };
 
@@ -147,18 +205,33 @@ export const planStudyOptionsSection = {
   btnLink1: "https://github.com/hashimkhanzada/WPF.PlanStudyOptions",
   imgStart: "start",
   img: require("../../images/books.svg").default,
-  img1: require("../../images/dotnet.svg").default,
-  tip1: ".Net Core  ",
-  img2: require("../../images/csharp.svg").default,
-  tip2: "C Sharp ",
-  img3: require("../../images/sql.svg").default,
-  tip3: "SQL Server",
-  img4: require("../../images/caliburnmicro.svg").default,
-  tip4: "Caliburn Micro",
-  img5: require("../../images/dapper.svg").default,
-  tip5: "Dapper ",
-  img6: require("../../images/materialdesignxaml.svg").default,
-  tip6: "Material Design XAML",
+
+  logoInfo: [
+    {
+      imgUrl: require("../../images/dotnet.svg").default,
+      tipText: ".Net Core",
+    },
+    {
+      imgUrl: require("../../images/csharp.svg").default,
+      tipText: "C Sharp",
+    },
+    {
+      imgUrl: require("../../images/sql.svg").default,
+      tipText: "SQL Server",
+    },
+    {
+      imgUrl: require("../../images/caliburnmicro.svg").default,
+      tipText: "Caliburn Micro",
+    },
+    {
+      imgUrl: require("../../images/dapper.svg").default,
+      tipText: "Dapper",
+    },
+    {
+      imgUrl: require("../../images/materialdesignxaml.svg").default,
+      tipText: "Material Design XAML",
+    },
+  ],
   alt: "Skills",
   start: "true",
 };
@@ -188,12 +261,21 @@ export const vueApp = {
   btnLink2: "https://youtu.be/lmg2hHx8lVA",
   imgStart: "",
   img: require("../../images/onboard.svg").default,
-  img1: require("../../images/vue.svg").default,
-  tip1: "Vue Js",
-  img2: require("../../images/vuetify.svg").default,
-  tip2: "Vuetify ",
-  img3: require("../../images/firebase.svg").default,
-  tip3: "Firebase ",
+
+  logoInfo: [
+    {
+      imgUrl: require("../../images/vue.svg").default,
+      tipText: "Vue Js",
+    },
+    {
+      imgUrl: require("../../images/vuetify.svg").default,
+      tipText: "Vuetify",
+    },
+    {
+      imgUrl: require("../../images/firebase.svg").default,
+      tipText: "Firebase",
+    },
+  ],
 
   alt: "Skills",
   start: "",
@@ -224,16 +306,30 @@ export const tuckbox = {
   btnLink2: "https://youtu.be/8MQ8BU053t8",
   imgStart: "start",
   img: require("../../images/phonelogo.svg").default,
-  img1: require("../../images/java.svg").default,
-  tip1: "Java",
-  img2: require("../../images/kotlin.svg").default,
-  tip2: "Kotlin",
-  img3: require("../../images/firebase.svg").default,
-  tip3: "Firebase",
-  img4: require("../../images/android.svg").default,
-  tip4: "Android",
-  img5: require("../../images/materialui.svg").default,
-  tip5: "Material UI ",
+
+  logoInfo: [
+    {
+      imgUrl: require("../../images/java.svg").default,
+      tipText: "Java",
+    },
+    {
+      imgUrl: require("../../images/kotlin.svg").default,
+      tipText: "Kotlin",
+    },
+    {
+      imgUrl: require("../../images/firebase.svg").default,
+      tipText: "Firebase",
+    },
+    {
+      imgUrl: require("../../images/android.svg").default,
+      tipText: "Android",
+    },
+    {
+      imgUrl: require("../../images/materialui.svg").default,
+      tipText: "Material UI",
+    },
+  ],
+
   alt: "Skills",
   start: "true",
 };
@@ -263,20 +359,41 @@ export const intercity = {
   // buttonLabel2: "Demo",
   imgStart: "",
   img: require("../../images/travel.svg").default,
-  img1: require("../../images/dotnet.svg").default,
-  tip1: ".Net Core  ",
-  img2: require("../../images/csharp.svg").default,
-  tip2: "C Sharp",
-  img3: require("../../images/react.svg").default,
-  tip3: "React",
-  img4: require("../../images/xamarin.svg").default,
-  tip4: "Xamarin ",
-  img5: require("../../images/sql.svg").default,
-  tip5: "SQL Server ",
-  img6: require("../../images/javascript.svg").default,
-  tip6: "JavaScript",
-  img7: require("../../images/dapper.svg").default,
-  tip7: "Dapper ",
+
+  logoInfo: [
+    {
+      imgUrl: require("../../images/dotnet.svg").default,
+      tipText: ".Net Core",
+    },
+    {
+      imgUrl: require("../../images/csharp.svg").default,
+      tipText: "C Sharp",
+    },
+    {
+      imgUrl: require("../../images/react.svg").default,
+      tipText: "React",
+    },
+    {
+      imgUrl: require("../../images/xamarin.svg").default,
+      tipText: "Xamarin",
+    },
+    {
+      imgUrl: require("../../images/sql.svg").default,
+      tipText: "SQL Server",
+    },
+    {
+      imgUrl: require("../../images/javascript.svg").default,
+      tipText: "JavaScript",
+    },
+    {
+      imgUrl: require("../../images/efcore.svg").default,
+      tipText: "Entity Framework",
+    },
+    {
+      imgUrl: require("../../images/dapper.svg").default,
+      tipText: "Dapper",
+    },
+  ],
 
   alt: "Skills",
   start: "",
