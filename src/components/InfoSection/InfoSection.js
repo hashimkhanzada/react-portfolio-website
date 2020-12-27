@@ -4,6 +4,7 @@ import { FaGithub, FaFilePdf, FaYoutube } from "react-icons/fa";
 import { SiAzuredevops } from "react-icons/si";
 import { AiOutlineFileZip } from "react-icons/ai";
 import ReactTooltip from "react-tooltip";
+import Youtube from "react-youtube";
 
 import {
   InfoSec,
@@ -54,6 +55,8 @@ function InfoSection({
   logoName,
   logoName2,
   logoInfo,
+  youtubeVideo,
+  youtubeUrl,
 }) {
   const [logos, setLogos] = useState([]);
 
@@ -61,7 +64,15 @@ function InfoSection({
     setLogos(logoInfo);
   }, []);
 
-  //console.log(logos);
+  //console.log(logos)
+
+  const opts = {
+    height: "400",
+    width: "450",
+    playersVars: {
+      autoplay: 0,
+    },
+  };
 
   return (
     <>
@@ -144,7 +155,11 @@ function InfoSection({
             <InfoColumn>
               <ImgWrapper start={start} skills={skills}>
                 {!skills ? (
-                  <Img src={img} alt={alt} />
+                  !youtubeVideo ? (
+                    <Img src={img} alt={alt} />
+                  ) : (
+                    <Youtube videoId={youtubeUrl} opts={opts} />
+                  )
                 ) : (
                   <TechWrapper skills={skills}>
                     {logos &&

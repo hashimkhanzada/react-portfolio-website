@@ -133,7 +133,8 @@ export const dietTrackerSection = {
   techsUsed: true,
   logoName: "Github",
   logoName2: "Youtube",
-  extraBtn: true,
+  youtubeVideo: true,
+  youtubeUrl: "h5HO1Ii3xj8",
   topLine: "Industry Project - sponsored by UCOL",
   headline: "Diet Tracking Software",
   description:
@@ -145,7 +146,6 @@ export const dietTrackerSection = {
   buttonLabel: "Source Code",
   buttonLabel2: "Demo",
   btnLink1: "https://github.com/hashimkhanzada/Nutritional_Software",
-  btnLink2: "https://youtu.be/h5HO1Ii3xj8",
   imgStart: "",
   img: require("../../images/food.svg").default,
   logoInfo: [
@@ -246,7 +246,8 @@ export const vueApp = {
   techsUsed: true,
   logoName: "Azure",
   logoName2: "Youtube",
-  extraBtn: true,
+  youtubeVideo: true,
+  youtubeUrl: "lmg2hHx8lVA",
   topLine: "VueJs | Vuetify",
   headline: "Single Page Application",
   description:
@@ -258,7 +259,6 @@ export const vueApp = {
   buttonLabel: "Source Code",
   buttonLabel2: "Demo",
   btnLink1: "https://dev.azure.com/hashimkhanzada/VueJs",
-  btnLink2: "https://youtu.be/lmg2hHx8lVA",
   imgStart: "",
   img: require("../../images/onboard.svg").default,
 
@@ -292,7 +292,8 @@ export const tuckbox = {
   download: true,
   logoName: "Zip",
   logoName2: "Youtube",
-  extraBtn: true,
+  youtubeVideo: true,
+  youtubeUrl: "8MQ8BU053t8",
   topLine: "JAVA | KOTLIN",
   headline: "TUCKBOX",
   description:
@@ -303,7 +304,6 @@ export const tuckbox = {
   buttonLabel: "Download ZIP",
   buttonLabel2: "Demo",
   btnLink1: require("../../images/TuckBox.zip").default,
-  btnLink2: "https://youtu.be/8MQ8BU053t8",
   imgStart: "start",
   img: require("../../images/phonelogo.svg").default,
 
