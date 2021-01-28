@@ -59,16 +59,30 @@ function InfoSection({
   youtubeUrl,
 }) {
   const [logos, setLogos] = useState([]);
+  const [mobileView, setMobileView] = useState(false);
 
   useEffect(() => {
     setLogos(logoInfo);
+    if (window.innerWidth <= 960) {
+      setMobileView(false);
+    } else {
+      setMobileView(true);
+    }
   }, []);
 
   //console.log(logos)
 
   const opts = {
     height: "400",
-    width: "450",
+    width: "650",
+    playersVars: {
+      autoplay: 0,
+    },
+  };
+
+  const mobileOpts = {
+    height: "380",
+    width: "400",
     playersVars: {
       autoplay: 0,
     },
@@ -158,7 +172,10 @@ function InfoSection({
                   !youtubeVideo ? (
                     <Img src={img} alt={alt} />
                   ) : (
-                    <Youtube videoId={youtubeUrl} opts={opts} />
+                    <Youtube
+                      videoId={youtubeUrl}
+                      opts={mobileView ? opts : mobileOpts}
+                    />
                   )
                 ) : (
                   <TechWrapper skills={skills}>

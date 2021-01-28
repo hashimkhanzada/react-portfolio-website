@@ -16,10 +16,10 @@ function Home() {
       <InfoSection {...portfolioSection} />
       <InfoSection {...aboutMeSection} />
       <InfoSection {...dietTrackerSection} />
-      <InfoSection {...planStudyOptionsSection} />
-      <InfoSection {...vueApp} />
-      <InfoSection {...tuckbox} />
       <InfoSection {...intercity} />
+      <InfoSection {...planStudyOptionsSection} />
+      <InfoSection {...tuckbox} />
+      <InfoSection {...vueApp} />
     </>
   );
 }

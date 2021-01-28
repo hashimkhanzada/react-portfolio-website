@@ -98,24 +98,27 @@ export const aboutMeSection = {
       tipText: "Xamarin",
     },
     {
-      imgUrl: require("../../images/caliburnmicro.svg").default,
-      tipText: "Caliburn Micro",
+      imgUrl: require("../../images/typescript.svg").default,
+      tipText: "TypeScript",
     },
+
     {
       imgUrl: require("../../images/java.svg").default,
       tipText: "Java",
     },
+
     {
       imgUrl: require("../../images/dapper.svg").default,
       tipText: "Dapper",
     },
+
     {
       imgUrl: require("../../images/efcore.svg").default,
       tipText: "Entity Framework Core",
     },
     {
-      imgUrl: require("../../images/materialdesignxaml.svg").default,
-      tipText: "Material Design XAML",
+      imgUrl: require("../../images/git-icon.svg").default,
+      tipText: "Git",
     },
   ],
 
@@ -187,11 +190,11 @@ export const dietTrackerSection = {
 
 export const planStudyOptionsSection = {
   id: "planStudyOptions",
-  primary: true,
-  lightBg: false,
-  lightTopLine: true,
-  lightText: true,
-  lightTextDesc: true,
+  primary: false,
+  lightBg: true,
+  lightTopLine: false,
+  lightText: false,
+  lightTextDesc: false,
   techsUsed: true,
   logoName: "Github",
   topLine: "WPF | Caliburn Micro",
@@ -336,27 +339,25 @@ export const tuckbox = {
 
 export const intercity = {
   id: "intercity",
-  primary: false,
-  lightBg: true,
-  lightTopLine: false,
-  lightText: false,
-  lightTextDesc: false,
+  primary: true,
+  lightBg: false,
+  lightTopLine: true,
+  lightText: true,
+  lightTextDesc: true,
   techsUsed: true,
   logoName: "Github",
+  youtubeVideo: true,
+  youtubeUrl: "h4NJGhGGyrI",
   // logoName2: "Youtube",
   // extraBtn: true,
-  topLine: "ASP.NET | Xamarin | React",
+  topLine: ".NET Web API | React",
   headline: "InterCity Clone",
   description:
-    "An InterCity clone application with multiple user interfaces and a shared library. Currently has a web and mobile UI, for different purposes. " +
-    ".",
-  description2:
-    "Web interface for customers to register/login, and create/manage bookings. Mobile interface for bus drivers to check-in customers.",
+    "An InterCity clone web application built with React and .NET 5 Web API. Users are able to search for trips and book them accordingly. They can also manage their bookings using a unique reference number provided to them.",
+
   description3: "Technologies used:",
-  buttonLabel: "In Progress",
-  btnLink1: "#",
-  // btnLink2: "/",
-  // buttonLabel2: "Demo",
+  buttonLabel: "Source Code",
+  btnLink1: "https://github.com/hashimkhanzada/InterCityClone",
   imgStart: "",
   img: require("../../images/travel.svg").default,
 
@@ -373,25 +374,22 @@ export const intercity = {
       imgUrl: require("../../images/react.svg").default,
       tipText: "React",
     },
+
     {
-      imgUrl: require("../../images/xamarin.svg").default,
-      tipText: "Xamarin",
+      imgUrl: require("../../images/javascript.svg").default,
+      tipText: "JavaScript",
+    },
+    {
+      imgUrl: require("../../images/typescript.svg").default,
+      tipText: "TypeScript",
     },
     {
       imgUrl: require("../../images/sql.svg").default,
       tipText: "SQL Server",
     },
     {
-      imgUrl: require("../../images/javascript.svg").default,
-      tipText: "JavaScript",
-    },
-    {
       imgUrl: require("../../images/efcore.svg").default,
       tipText: "Entity Framework",
-    },
-    {
-      imgUrl: require("../../images/dapper.svg").default,
-      tipText: "Dapper",
     },
   ],
 
