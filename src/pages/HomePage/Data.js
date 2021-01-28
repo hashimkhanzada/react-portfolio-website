@@ -173,12 +173,8 @@ export const dietTrackerSection = {
       tipText: "JavaScript",
     },
     {
-      imgUrl: require("../../images/html.svg").default,
-      tipText: "HTML",
-    },
-    {
-      imgUrl: require("../../images/css.svg").default,
-      tipText: "CSS",
+      imgUrl: require("../../images/efcore.svg").default,
+      tipText: "Entity Framework Core",
     },
     {
       imgUrl: require("../../images/azure.svg").default,
@@ -206,7 +202,7 @@ export const planStudyOptionsSection = {
   description3: "Technologies used:",
   buttonLabel: "Source Code",
   btnLink1: "https://github.com/hashimkhanzada/WPF.PlanStudyOptions",
-  imgStart: "start",
+  imgStart: "",
   img: require("../../images/books.svg").default,
 
   logoInfo: [
@@ -236,7 +232,7 @@ export const planStudyOptionsSection = {
     },
   ],
   alt: "Skills",
-  start: "true",
+  start: "",
 };
 
 export const vueApp = {
@@ -307,7 +303,7 @@ export const tuckbox = {
   buttonLabel: "Download ZIP",
   buttonLabel2: "Demo",
   btnLink1: require("../../images/TuckBox.zip").default,
-  imgStart: "start",
+  imgStart: "",
   img: require("../../images/phonelogo.svg").default,
 
   logoInfo: [
@@ -334,7 +330,7 @@ export const tuckbox = {
   ],
 
   alt: "Skills",
-  start: "true",
+  start: "",
 };
 
 export const intercity = {
