@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/static/js/main.976c72cc.chunk.js",
-    "main.js.map": "/static/js/main.976c72cc.chunk.js.map",
+    "main.js": "/static/js/main.daed4166.chunk.js",
+    "main.js.map": "/static/js/main.daed4166.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.83546e98.js",
     "runtime-main.js.map": "/static/js/runtime-main.83546e98.js.map",
-    "static/js/2.1e744bcb.chunk.js": "/static/js/2.1e744bcb.chunk.js",
-    "static/js/2.1e744bcb.chunk.js.map": "/static/js/2.1e744bcb.chunk.js.map",
+    "static/js/2.f9b39f1f.chunk.js": "/static/js/2.f9b39f1f.chunk.js",
+    "static/js/2.f9b39f1f.chunk.js.map": "/static/js/2.f9b39f1f.chunk.js.map",
     "index.html": "/index.html",
-    "static/js/2.1e744bcb.chunk.js.LICENSE.txt": "/static/js/2.1e744bcb.chunk.js.LICENSE.txt",
+    "static/js/2.f9b39f1f.chunk.js.LICENSE.txt": "/static/js/2.f9b39f1f.chunk.js.LICENSE.txt",
     "static/media/TuckBox.zip": "/static/media/TuckBox.e89b3324.zip",
     "static/media/android.svg": "/static/media/android.0feb8167.svg",
     "static/media/azure.svg": "/static/media/azure.16afec27.svg",
@@ -20,6 +20,7 @@
     "static/media/efcore.svg": "/static/media/efcore.e3417ac0.svg",
     "static/media/firebase.svg": "/static/media/firebase.e6583a29.svg",
     "static/media/food.svg": "/static/media/food.896dcdd9.svg",
+    "static/media/git-icon.svg": "/static/media/git-icon.dd8f1dca.svg",
     "static/media/hashim-cv.pdf": "/static/media/hashim-cv.f7f475bc.pdf",
     "static/media/html.svg": "/static/media/html.19615780.svg",
     "static/media/java.svg": "/static/media/java.5e8cb917.svg",
@@ -31,16 +32,17 @@
     "static/media/onboard.svg": "/static/media/onboard.2acb4e4a.svg",
     "static/media/phonelogo.svg": "/static/media/phonelogo.09a2254d.svg",
     "static/media/react-logo.svg": "/static/media/react-logo.7b78f5c3.svg",
-    "static/media/react.svg": "/static/media/react.add74742.svg",
+    "static/media/react.svg": "/static/media/react.116e502c.svg",
     "static/media/sql.svg": "/static/media/sql.18f84630.svg",
     "static/media/travel.svg": "/static/media/travel.2ae1aaaa.svg",
-    "static/media/vue.svg": "/static/media/vue.f04dfe30.svg",
+    "static/media/typescript.svg": "/static/media/typescript.a6305a73.svg",
+    "static/media/vue.svg": "/static/media/vue.f1fd23be.svg",
     "static/media/vuetify.svg": "/static/media/vuetify.c3ac4b61.svg",
     "static/media/xamarin.svg": "/static/media/xamarin.4c3f7375.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.83546e98.js",
-    "static/js/2.1e744bcb.chunk.js",
-    "static/js/main.976c72cc.chunk.js"
+    "static/js/2.f9b39f1f.chunk.js",
+    "static/js/main.daed4166.chunk.js"
   ]
 }
