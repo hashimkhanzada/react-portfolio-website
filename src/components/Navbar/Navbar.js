@@ -46,7 +46,7 @@ function Navbar() {
       <IconContext.Provider value={{ color: "#fff" }}>
         <Nav>
           <NavbarContainer>
-            <NavLogo to="#" onClick={(closeMobileMenu, scrollToTop)}>
+            <NavLogo to="/" onClick={(closeMobileMenu, scrollToTop)}>
               <NavIcon />
               HASHIM KHANZADA
             </NavLogo>
