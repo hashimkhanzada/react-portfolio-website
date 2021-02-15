@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/static/js/main.bc554ecc.chunk.js",
-    "main.js.map": "/static/js/main.bc554ecc.chunk.js.map",
+    "main.js": "/static/js/main.eab7c248.chunk.js",
+    "main.js.map": "/static/js/main.eab7c248.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.83546e98.js",
     "runtime-main.js.map": "/static/js/runtime-main.83546e98.js.map",
-    "static/js/2.70886665.chunk.js": "/static/js/2.70886665.chunk.js",
-    "static/js/2.70886665.chunk.js.map": "/static/js/2.70886665.chunk.js.map",
+    "static/js/2.180f1468.chunk.js": "/static/js/2.180f1468.chunk.js",
+    "static/js/2.180f1468.chunk.js.map": "/static/js/2.180f1468.chunk.js.map",
     "index.html": "/index.html",
-    "static/js/2.70886665.chunk.js.LICENSE.txt": "/static/js/2.70886665.chunk.js.LICENSE.txt",
+    "static/js/2.180f1468.chunk.js.LICENSE.txt": "/static/js/2.180f1468.chunk.js.LICENSE.txt",
     "static/media/TuckBox.zip": "/static/media/TuckBox.e89b3324.zip",
     "static/media/android.svg": "/static/media/android.0feb8167.svg",
     "static/media/azure.svg": "/static/media/azure.16afec27.svg",
@@ -42,7 +42,7 @@
   },
   "entrypoints": [
     "static/js/runtime-main.83546e98.js",
-    "static/js/2.70886665.chunk.js",
-    "static/js/main.bc554ecc.chunk.js"
+    "static/js/2.180f1468.chunk.js",
+    "static/js/main.eab7c248.chunk.js"
   ]
 }
