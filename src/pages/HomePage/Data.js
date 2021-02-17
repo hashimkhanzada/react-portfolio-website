@@ -6,6 +6,7 @@ export const portfolioSection = {
   lightText: false,
   lightTextDesc: false,
   logoName: "Github",
+  logoName2: "Data",
   topLine: "Created with React",
   headline: "My Portfolio Website",
   description: "A showcase of my projects",
@@ -15,6 +16,9 @@ export const portfolioSection = {
   img: require("../../images/react-logo.svg").default,
   alt: "React Logo",
   start: "",
+  extraBtn: true,
+  btnLink2: "/DataViz",
+  buttonLabel2: "Data Visualizer",
 };
 
 export const aboutMeSection = {

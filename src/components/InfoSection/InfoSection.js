@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Container, Button } from "../../globalStyles";
-import { FaGithub, FaFilePdf, FaYoutube } from "react-icons/fa";
+import { FaGithub, FaFilePdf, FaYoutube, FaChartPie } from "react-icons/fa";
 import { SiAzuredevops } from "react-icons/si";
 import { AiOutlineFileZip } from "react-icons/ai";
 import ReactTooltip from "react-tooltip";
 import Youtube from "react-youtube";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import {
   InfoSec,
@@ -144,12 +145,7 @@ function InfoSection({
                   </Button>
                 </a>
                 {!extraBtn ? null : (
-                  <a
-                    href={btnLink2}
-                    target="_blank"
-                    aria-label="Logo"
-                    rel="noopener"
-                  >
+                  <Link to="./DataViz">
                     <Button fontBig primary>
                       <ButtonItems>
                         <ButtonItem>
@@ -158,11 +154,12 @@ function InfoSection({
                           {logoName2 === "Azure" ? <SiAzuredevops /> : null}
                           {logoName2 === "Youtube" ? <FaYoutube /> : null}
                           {logoName2 === "Zip" ? <AiOutlineFileZip /> : null}
+                          {logoName2 === "Data" ? <FaChartPie /> : null}
                         </ButtonItem>
                         <ButtonItem>{buttonLabel2}</ButtonItem>
                       </ButtonItems>
                     </Button>
-                  </a>
+                  </Link>
                 )}
               </TextWrapper>
             </InfoColumn>

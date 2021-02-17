@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { FaBars, FaTimes, FaGithub, FaLinkedin } from "react-icons/fa";
+import {
+  FaBars,
+  FaTimes,
+  FaGithub,
+  FaLinkedin,
+  FaChartPie,
+} from "react-icons/fa";
 import { IconContext } from "react-icons/lib";
-import { Link, animateScroll as scroll } from "react-scroll";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { HiOutlineMail } from "react-icons/hi";
 
 import {
@@ -31,10 +37,6 @@ function Navbar() {
     }
   };
 
-  const scrollToTop = () => {
-    scroll.scrollToTop();
-  };
-
   useEffect(() => {
     showButton();
   }, []);
@@ -46,7 +48,7 @@ function Navbar() {
       <IconContext.Provider value={{ color: "#fff" }}>
         <Nav>
           <NavbarContainer>
-            <NavLogo to="/" onClick={(closeMobileMenu, scrollToTop)}>
+            <NavLogo to="/" onClick={closeMobileMenu}>
               <NavIcon />
               HASHIM KHANZADA
             </NavLogo>
@@ -55,31 +57,12 @@ function Navbar() {
             </MobileIcon>
             <NavMenu onClick={handleClick} click={click}>
               <NavItem>
-                <Link
-                  activeClass="active"
-                  to="aboutMe"
-                  spy={true}
-                  smooth={true}
-                  offset={-70}
-                  duration={500}
-                  onClick={closeMobileMenu}
-                >
-                  <NavLinks>About</NavLinks>
-                </Link>
+                <NavLinks to="/DataViz" onClick={closeMobileMenu}>
+                  <FaChartPie style={{ marginRight: "5px" }} />
+                  Data Visualizer
+                </NavLinks>
               </NavItem>
-              <NavItem>
-                <Link
-                  activeClass="active"
-                  to="dietTracker"
-                  spy={true}
-                  smooth={true}
-                  offset={-70}
-                  duration={500}
-                  onClick={closeMobileMenu}
-                >
-                  <NavLinks>Projects</NavLinks>
-                </Link>
-              </NavItem>
+
               <NavItem>
                 <SocialIconLink
                   href={"https://github.com/hashimkhanzada"}

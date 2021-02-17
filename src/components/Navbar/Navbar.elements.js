@@ -115,7 +115,7 @@ export const NavLinks = styled(Link)`
     text-align: center;
     padding: 2rem;
     width: 100%;
-    display: table;
+    justify-content: center;
 
     &:hover {
       color: #4b59f7;
