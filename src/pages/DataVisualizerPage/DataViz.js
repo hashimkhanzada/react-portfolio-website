@@ -191,9 +191,6 @@ const DataViz = () => {
         setIsNumberColumn(true);
         setIntroData("Click on an object to display related data");
       } else {
-        setIntroData(
-          "Only columns that contain numbers can be displayed as objects. Refresh the page if any issues occur."
-        );
         setBodyInfo("");
       }
 
