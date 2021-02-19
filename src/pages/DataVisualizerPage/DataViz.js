@@ -3,6 +3,7 @@ import { parse } from "papaparse";
 import styled from "styled-components";
 import { ConvertedData } from "./ConvertedData";
 import { Button } from "../../globalStyles";
+import "./DataViz.css";
 
 const MainContainer = styled.div`
   display: flex;
@@ -371,7 +372,7 @@ const DataViz = () => {
             )}
           </SelectBlock>
 
-          <BodyData>
+          <BodyData className="scrollBar">
             {bodyInfo ? (
               columnNames.map((data, idx) => {
                 return (

@@ -1,0 +1,15 @@
+.scrollBar::-webkit-scrollbar {
+  width: 8px;
+  background: none;
+}
+
+.scrollBar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 1ex;
+  -webkit-border-radius: 1ex;
+  visibility: hidden;
+}
+
+.scrollBar:hover::-webkit-scrollbar-thumb {
+  visibility: visible;
+}
