@@ -145,6 +145,12 @@ const DataViz = () => {
     "A basic data visualizer that converts data from a .CSV file and displays them as movable objects."
   );
 
+  const getRandomInt = (min, max) => {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min);
+  };
+
   useEffect(() => {
     let asd = dataRef.current.getBoundingClientRect();
     setDimensions({ width: asd.width, height: asd.height });
@@ -263,80 +269,72 @@ const DataViz = () => {
                   onClick={() => {
                     setImportedData([
                       {
-                        Name: "Lala bhai",
-                        Age: 55,
-                      },
-                      {
-                        Name: "Daddu",
-                        Age: 27,
-                      },
-                      {
                         Name: "Adz Goming",
-                        Age: 15,
+                        Age: getRandomInt(10, 50),
                       },
                       {
                         Name: "Geazy",
-                        Age: 30,
+                        Age: getRandomInt(10, 50),
                       },
                       {
-                        Name: "Nadir Qureshi",
-                        Age: 20,
+                        Name: "NQ",
+                        Age: getRandomInt(10, 50),
                       },
                       {
                         Name: "Neil Buckin",
-                        Age: 19,
+                        Age: getRandomInt(10, 50),
                       },
                       {
                         Name: "ok",
-                        Age: 15,
+                        Age: getRandomInt(10, 50),
                       },
                       {
                         Name: "test",
-                        Age: 27,
+                        Age: getRandomInt(10, 50),
                       },
                       {
                         Name: "cvb",
-                        Age: 12,
+                        Age: getRandomInt(10, 50),
                       },
                       {
                         Name: ",mn",
-                        Age: 14,
+                        Age: getRandomInt(10, 50),
                       },
                       {
                         Name: "oiu",
-                        Age: 12,
+                        Age: getRandomInt(10, 100),
                       },
                       {
                         Name: "hgd",
-                        Age: 21,
+                        Age: getRandomInt(10, 50),
                       },
                       {
                         Name: "asdf",
-                        Age: 12,
+                        Age: getRandomInt(10, 50),
                       },
                       {
                         Name: "fds",
-                        Age: 10,
+                        Age: getRandomInt(10, 50),
                       },
                       {
                         Name: "qwe",
-                        Age: 19,
+                        Age: getRandomInt(10, 50),
                       },
                       {
                         Name: "tre",
-                        Age: 18,
+                        Age: getRandomInt(10, 50),
                       },
                       {
-                        Name: "tsm wadan",
-                        Age: 5,
+                        Name: "uyt",
+                        Age: getRandomInt(10, 50),
                       },
                       {
-                        Name: "chapri",
-                        Age: 2,
+                        Name: "dfgb",
+                        Age: getRandomInt(10, 50),
                       },
                       {
-                        Name: "faze basil",
-                        Age: 4,
+                        Name: "iuy",
+                        Age: getRandomInt(10, 50),
                       },
                     ]);
                     setIntroData(
