@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Container, Button } from "../../globalStyles";
-import { FaGithub, FaFilePdf, FaYoutube, FaChartPie } from "react-icons/fa";
-import { SiAzuredevops } from "react-icons/si";
-import { AiOutlineFileZip } from "react-icons/ai";
 import ReactTooltip from "react-tooltip";
 import Youtube from "react-youtube";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
@@ -58,6 +55,8 @@ function InfoSection({
   logoInfo,
   youtubeVideo,
   youtubeUrl,
+  Icon,
+  Icon2,
 }) {
   const [logos, setLogos] = useState([]);
   const [mobileView, setMobileView] = useState(false);
@@ -70,8 +69,6 @@ function InfoSection({
       setMobileView(true);
     }
   }, []);
-
-  //console.log(logos)
 
   const opts = {
     height: "400",
@@ -116,7 +113,7 @@ function InfoSection({
                               key={logo.imgUrl}
                               src={logo.imgUrl}
                               data-tip={logo.tipText}
-                              alt={"alt"}
+                              alt={"Tech"}
                             />
                             <ReactTooltip />
                           </Tech>
@@ -133,13 +130,7 @@ function InfoSection({
                 >
                   <Button fontBig primary>
                     <ButtonItems>
-                      <ButtonItem>
-                        {logoName === "Github" ? <FaGithub /> : null}
-                        {logoName === "Resume" ? <FaFilePdf /> : null}
-                        {logoName === "Azure" ? <SiAzuredevops /> : null}
-                        {logoName === "Youtube" ? <FaYoutube /> : null}
-                        {logoName === "Zip" ? <AiOutlineFileZip /> : null}
-                      </ButtonItem>
+                      <ButtonItem>{Icon}</ButtonItem>
                       <ButtonItem>{buttonLabel}</ButtonItem>
                     </ButtonItems>
                   </Button>
@@ -148,14 +139,7 @@ function InfoSection({
                   <Link to="./DataViz">
                     <Button fontBig primary>
                       <ButtonItems>
-                        <ButtonItem>
-                          {logoName2 === "Github" ? <FaGithub /> : null}
-                          {logoName2 === "Resume" ? <FaFilePdf /> : null}
-                          {logoName2 === "Azure" ? <SiAzuredevops /> : null}
-                          {logoName2 === "Youtube" ? <FaYoutube /> : null}
-                          {logoName2 === "Zip" ? <AiOutlineFileZip /> : null}
-                          {logoName2 === "Data" ? <FaChartPie /> : null}
-                        </ButtonItem>
+                        <ButtonItem>{Icon2}</ButtonItem>
                         <ButtonItem>{buttonLabel2}</ButtonItem>
                       </ButtonItems>
                     </Button>
@@ -185,7 +169,7 @@ function InfoSection({
                               src={logo.imgUrl}
                               data-tip={logo.tipText}
                               skills={skills}
-                              alt={"alt"}
+                              alt={"Tech"}
                             />
                           </Tech>
                         );

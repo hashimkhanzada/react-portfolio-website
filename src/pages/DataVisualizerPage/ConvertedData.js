@@ -190,8 +190,6 @@ export const ConvertedData = ({
         setFirstBall(true);
       }
 
-      // console.log("asdasda>>>>", largestCircle);
-
       importedCircleData.forEach((element) => {
         let randomX = Math.floor(Math.random() * -width) + width;
         let randomY = Math.floor(Math.random() * -height) + height;

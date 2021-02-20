@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { ConvertedData } from "./ConvertedData";
 import { Button } from "../../globalStyles";
 import "./DataViz.css";
+import SampleData from "./SampleData";
 
 const MainContainer = styled.div`
   display: flex;
@@ -145,6 +146,10 @@ const DataViz = () => {
   const [introData, setIntroData] = useState(
     "A basic data visualizer that converts data from a .CSV file and displays them as movable objects."
   );
+  const [groupByColumn, setGroupByColumn] = useState();
+  const [groupedColumnNames, setGroupedColumnNames] = useState([]);
+  const [selectedGroupColumn, setSelectedGroupColumn] = useState();
+  const [groupedColumnData, setGroupedColumnData] = useState();
 
   const getRandomInt = (min, max) => {
     min = Math.ceil(min);
@@ -225,11 +230,40 @@ const DataViz = () => {
 
         setImportedData(result.data);
         setIntroData(
-          "Only columns that contain numbers can be displayed as objects. Refresh the page if any issues occur."
+          "Only columns that contain numbers can be displayed as objects. Refresh the page if any issues occur (usually when columns are changed)"
         );
       });
   };
 
+  useEffect(() => {
+    if (groupByColumn && groupByColumn != "AllData") {
+      let group = importedData.reduce((r, a) => {
+        r[a[groupByColumn]] = [...(r[a[groupByColumn]] || []), a];
+        return r;
+      }, {});
+      let nameOfColumns = [];
+      const cols = Object.keys(group).map((item) => {
+        nameOfColumns.push(item);
+      });
+
+      setGroupedColumnNames(nameOfColumns);
+    }
+  }, [groupByColumn]);
+
+  useEffect(() => {
+    if (groupByColumn != "AllData") {
+      const result = importedData.filter(
+        (word) => word[groupByColumn] == selectedGroupColumn
+      );
+      setGroupedColumnData(result);
+    }
+  }, [selectedGroupColumn]);
+
+  useEffect(() => {
+    if (groupByColumn == "AllData") {
+      setGroupedColumnData(importedData);
+    }
+  }, [groupByColumn]);
   return (
     <MainContainer
       onDragOver={(e) => {
@@ -268,78 +302,10 @@ const DataViz = () => {
                   primary
                   fontBig
                   onClick={() => {
-                    setImportedData([
-                      {
-                        Name: "Adz Goming",
-                        Age: getRandomInt(10, 50),
-                      },
-                      {
-                        Name: "Geazy",
-                        Age: getRandomInt(10, 50),
-                      },
-                      {
-                        Name: "NQ",
-                        Age: getRandomInt(10, 50),
-                      },
-                      {
-                        Name: "Neil Buckin",
-                        Age: getRandomInt(10, 50),
-                      },
-                      {
-                        Name: "ok",
-                        Age: getRandomInt(10, 50),
-                      },
-                      {
-                        Name: "test",
-                        Age: getRandomInt(10, 50),
-                      },
-                      {
-                        Name: "cvb",
-                        Age: getRandomInt(10, 50),
-                      },
-                      {
-                        Name: ",mn",
-                        Age: getRandomInt(10, 50),
-                      },
-                      {
-                        Name: "oiu",
-                        Age: getRandomInt(10, 100),
-                      },
-                      {
-                        Name: "hgd",
-                        Age: getRandomInt(10, 50),
-                      },
-                      {
-                        Name: "asdf",
-                        Age: getRandomInt(10, 50),
-                      },
-                      {
-                        Name: "fds",
-                        Age: getRandomInt(10, 50),
-                      },
-                      {
-                        Name: "qwe",
-                        Age: getRandomInt(10, 50),
-                      },
-                      {
-                        Name: "tre",
-                        Age: getRandomInt(10, 50),
-                      },
-                      {
-                        Name: "uyt",
-                        Age: getRandomInt(10, 50),
-                      },
-                      {
-                        Name: "dfgb",
-                        Age: getRandomInt(10, 50),
-                      },
-                      {
-                        Name: "iuy",
-                        Age: getRandomInt(10, 50),
-                      },
-                    ]);
+                    setImportedData(SampleData);
+                    console.log(SampleData);
                     setIntroData(
-                      "Only columns that contain numbers can be displayed as objects. Refresh the page if any issues occur."
+                      "Only columns that contain numbers can be displayed as objects. Refresh the page if any issues occur (usually when columns are changed)."
                     );
                   }}
                   style={{
@@ -351,24 +317,70 @@ const DataViz = () => {
               </>
             )}
             {importedData.length > 0 && (
-              <SelectInput
-                style={{ width: "100%" }}
-                onChange={(e) => {
-                  setSelectedColumn(e.target.value);
-                }}
-              >
-                <option value="" defaultValue>
-                  - select a column with numbers -
-                </option>
-                {columnNames &&
-                  columnNames.map((data) => {
-                    return (
-                      <option key={data} value={data}>
-                        {data}
+              <>
+                <SelectInput
+                  style={{ width: "100%" }}
+                  onChange={(e) => {
+                    setSelectedColumn(e.target.value);
+                  }}
+                >
+                  <option value="" defaultValue>
+                    - select a column with numbers -
+                  </option>
+                  {columnNames &&
+                    columnNames.map((data) => {
+                      return (
+                        <option key={data} value={data}>
+                          {data}
+                        </option>
+                      );
+                    })}
+                </SelectInput>
+                {selectedColumn && (
+                  <>
+                    <SelectInput
+                      style={{ width: "100%" }}
+                      onChange={(e) => {
+                        setGroupByColumn(e.target.value);
+                      }}
+                    >
+                      <option value="" defaultValue>
+                        - select a column to group by -
                       </option>
-                    );
-                  })}
-              </SelectInput>
+                      <option value="AllData">Show All</option>
+                      {columnNames &&
+                        columnNames.map((data) => {
+                          return (
+                            <option key={data} value={data}>
+                              {data}
+                            </option>
+                          );
+                        })}
+                    </SelectInput>
+                    {groupByColumn && groupByColumn != "AllData" && (
+                      <SelectInput
+                        style={{ width: "100%" }}
+                        onChange={(e) => {
+                          setSelectedGroupColumn(e.target.value);
+                        }}
+                      >
+                        <option value="" defaultValue>
+                          - Select the {groupByColumn} -
+                        </option>
+
+                        {groupedColumnNames &&
+                          groupedColumnNames.map((group) => {
+                            return (
+                              <option key={group} value={group}>
+                                {group}
+                              </option>
+                            );
+                          })}
+                      </SelectInput>
+                    )}
+                  </>
+                )}
+              </>
             )}
           </SelectBlock>
 
@@ -391,10 +403,10 @@ const DataViz = () => {
         </BodyContainer>
       </LeftColumn>
       <RightColumn ref={dataRef}>
-        {importedData.length > 0 && isNumberColumn ? (
+        {groupedColumnData?.length > 0 && isNumberColumn ? (
           <ConvertedData
-            key={selectedColumn}
-            circleData={importedData}
+            key={selectedGroupColumn + selectedColumn}
+            circleData={groupedColumnData}
             largestCircle={largestCircle}
             selectedColumn={selectedColumn}
             maxRadius={largestRadius}

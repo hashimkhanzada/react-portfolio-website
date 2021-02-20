@@ -1,3 +1,8 @@
+import { AiOutlineFileZip } from "react-icons/ai";
+import { SiAzuredevops } from "react-icons/si";
+
+import { FaGithub, FaFilePdf, FaYoutube, FaChartPie } from "react-icons/fa";
+
 export const portfolioSection = {
   id: "portfolio",
   primary: false,
@@ -19,6 +24,8 @@ export const portfolioSection = {
   extraBtn: true,
   btnLink2: "/DataViz",
   buttonLabel2: "Data Visualizer",
+  Icon: <FaGithub />,
+  Icon2: <FaChartPie />,
 };
 
 export const aboutMeSection = {
@@ -50,17 +57,23 @@ export const aboutMeSection = {
       tipText: "C Sharp",
     },
     {
+      imgUrl: require("../../images/react.svg").default,
+      tipText: "React Js",
+    },
+    {
+      imgUrl: require("../../images/redux.svg").default,
+      tipText: "Redux",
+    },
+    {
       imgUrl: require("../../images/sql.svg").default,
       tipText: "SQL Server",
     },
+
     {
       imgUrl: require("../../images/jquery.svg").default,
       tipText: "jQuery",
     },
-    {
-      imgUrl: require("../../images/react.svg").default,
-      tipText: "React Js",
-    },
+
     {
       imgUrl: require("../../images/html.svg").default,
       tipText: "HTML",
@@ -72,6 +85,10 @@ export const aboutMeSection = {
     {
       imgUrl: require("../../images/javascript.svg").default,
       tipText: "JavaScript",
+    },
+    {
+      imgUrl: require("../../images/typescript.svg").default,
+      tipText: "TypeScript",
     },
     {
       imgUrl: require("../../images/azure.svg").default,
@@ -86,10 +103,6 @@ export const aboutMeSection = {
       tipText: "Vue Js",
     },
     {
-      imgUrl: require("../../images/vuetify.svg").default,
-      tipText: "Vuetify",
-    },
-    {
       imgUrl: require("../../images/kotlin.svg").default,
       tipText: "Kotlin",
     },
@@ -100,10 +113,6 @@ export const aboutMeSection = {
     {
       imgUrl: require("../../images/xamarin.svg").default,
       tipText: "Xamarin",
-    },
-    {
-      imgUrl: require("../../images/typescript.svg").default,
-      tipText: "TypeScript",
     },
 
     {
@@ -128,6 +137,7 @@ export const aboutMeSection = {
 
   alt: "Skills",
   start: "true",
+  Icon: <FaFilePdf />,
 };
 
 export const dietTrackerSection = {
@@ -186,6 +196,7 @@ export const dietTrackerSection = {
     },
   ],
   start: "",
+  Icon: <FaGithub />,
 };
 
 export const planStudyOptionsSection = {
@@ -237,6 +248,7 @@ export const planStudyOptionsSection = {
   ],
   alt: "Skills",
   start: "",
+  Icon: <FaGithub />,
 };
 
 export const vueApp = {
@@ -282,6 +294,7 @@ export const vueApp = {
 
   alt: "Skills",
   start: "",
+  Icon: <SiAzuredevops />,
 };
 
 export const tuckbox = {
@@ -335,6 +348,7 @@ export const tuckbox = {
 
   alt: "Skills",
   start: "",
+  Icon: <AiOutlineFileZip />,
 };
 
 export const intercity = {
@@ -395,4 +409,5 @@ export const intercity = {
 
   alt: "Skills",
   start: "",
+  Icon: <FaGithub />,
 };
