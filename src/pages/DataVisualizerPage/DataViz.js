@@ -6,6 +6,297 @@ import { Button } from "../../globalStyles";
 import "./DataViz.css";
 import SampleData from "./SampleData";
 
+const DataViz = () => {
+  const dataRef = useRef(null);
+  const [dimensions, setDimensions] = useState();
+  const [highlighted, setHighlighted] = useState(false);
+  const [columnNames, setColumnNames] = useState([]);
+  const [selectedColumn, setSelectedColumn] = useState("");
+  const [importedData, setImportedData] = useState([]);
+  const [largestCircle, setLargestCircle] = useState(0);
+  const [isNumberColumn, setIsNumberColumn] = useState(false);
+  const [largestRadius, setLargestRadius] = useState(0);
+  const [bodyInfo, setBodyInfo] = useState();
+  const [introData, setIntroData] = useState(
+    "A basic data visualizer that converts data from a .CSV file and displays them as movable objects."
+  );
+  const [groupByColumn, setGroupByColumn] = useState();
+  const [groupedColumnNames, setGroupedColumnNames] = useState([]);
+  const [selectedGroupColumn, setSelectedGroupColumn] = useState();
+  const [groupedColumnData, setGroupedColumnData] = useState();
+
+  useEffect(() => {
+    let dimen = dataRef.current.getBoundingClientRect();
+    setDimensions({ width: dimen.width, height: dimen.height });
+  }, []);
+
+  useEffect(() => {
+    if (importedData.length > 0) {
+      setColumnNames(Object.keys(importedData[0]));
+    }
+  }, [importedData]);
+
+  useEffect(() => {
+    if (dimensions && importedData) {
+      let addArray = [];
+      let largestNum = Math.max.apply(
+        Math,
+        importedData.map(function (o) {
+          addArray.push(Math.floor(o[selectedColumn]));
+          return o[selectedColumn];
+        })
+      );
+      let sum = addArray.reduce((a, b) => a + b, 0);
+      let multi = 1.2;
+      let maxRadius = 170;
+
+      if (window.innerWidth < 1100) {
+        multi = 1.7;
+      }
+
+      let allowedRad = Math.floor(
+        (dimensions.width + dimensions.height) / multi
+      );
+      let totalRad = Math.floor((sum / largestNum) * maxRadius);
+
+      while (totalRad > allowedRad) {
+        maxRadius -= 2;
+        totalRad = Math.floor((sum / largestNum) * maxRadius);
+      }
+
+      setLargestRadius(maxRadius);
+      setIsNumberColumn(false);
+
+      if (Number.isInteger(Math.floor(largestNum))) {
+        setIsNumberColumn(true);
+        setIntroData("Click on an object to display related data");
+      } else {
+        setBodyInfo("");
+      }
+
+      setLargestCircle(largestNum);
+    }
+  }, [selectedColumn, dimensions]);
+
+  const displayData = (b) => {
+    setBodyInfo(b);
+  };
+
+  const convertFiles = (x) => {
+    setHighlighted(false);
+
+    Array.from(x)
+      .filter((file) => file.type === "application/vnd.ms-excel")
+      .forEach(async (file) => {
+        const text = await file.text();
+
+        const result = parse(text, {
+          header: true,
+          skipEmptyLines: true,
+          preview: 50,
+        });
+
+        setImportedData(result.data);
+        setIntroData(
+          "Only columns that contain numbers can be displayed as objects. Refresh the page if any issues occur (usually when columns are changed)"
+        );
+      });
+  };
+
+  useEffect(() => {
+    if (groupByColumn && groupByColumn != "AllData") {
+      let group = importedData.reduce((r, a) => {
+        r[a[groupByColumn]] = [...(r[a[groupByColumn]] || []), a];
+        return r;
+      }, {});
+      let nameOfColumns = [];
+      const cols = Object.keys(group).map((item) => {
+        nameOfColumns.push(item);
+      });
+
+      setGroupedColumnNames(nameOfColumns);
+    }
+  }, [groupByColumn]);
+
+  useEffect(() => {
+    if (groupByColumn != "AllData") {
+      const result = importedData.filter(
+        (word) => word[groupByColumn] == selectedGroupColumn
+      );
+      setGroupedColumnData(result);
+      // console.log(result);
+    }
+  }, [selectedGroupColumn]);
+
+  useEffect(() => {
+    if (groupByColumn == "AllData") {
+      setGroupedColumnData(importedData);
+    }
+  }, [groupByColumn]);
+  return (
+    <MainContainer
+      onDragOver={(e) => {
+        e.preventDefault();
+      }}
+      onDrop={(e) => {
+        e.preventDefault();
+        convertFiles(e.dataTransfer.files);
+      }}
+    >
+      <LeftColumn
+        highlighted={highlighted}
+        onDragEnter={() => {
+          setHighlighted(true);
+        }}
+        onDragLeave={() => {
+          setHighlighted(false);
+        }}
+      >
+        <BodyContainer>
+          <SelectBlock>
+            {importedData.length == 0 && (
+              <>
+                <input
+                  type="file"
+                  onChange={(e) => {
+                    convertFiles(e.target.files);
+                  }}
+                  style={{
+                    marginBottom: "20px",
+                    borderRadius: "5px",
+                    width: "100%",
+                  }}
+                />
+                <Button
+                  primary
+                  fontBig
+                  onClick={() => {
+                    setImportedData(SampleData);
+                    // console.log(SampleData);
+                    setIntroData(
+                      "Only columns that contain numbers can be displayed as objects. Refresh the page if any issues occur (usually when columns are changed)."
+                    );
+                  }}
+                  style={{
+                    marginBottom: "20px",
+                  }}
+                >
+                  Load Sample Data
+                </Button>
+              </>
+            )}
+            {importedData.length > 0 && (
+              <>
+                <SelectInput
+                  style={{ width: "100%" }}
+                  onChange={(e) => {
+                    setSelectedColumn(e.target.value);
+                  }}
+                >
+                  <option value="" defaultValue>
+                    - select a column with numbers -
+                  </option>
+                  {columnNames &&
+                    columnNames.map((data) => {
+                      return (
+                        <option key={data} value={data}>
+                          {data}
+                        </option>
+                      );
+                    })}
+                </SelectInput>
+                {selectedColumn && (
+                  <>
+                    <SelectInput
+                      style={{ width: "100%" }}
+                      onChange={(e) => {
+                        setGroupByColumn(e.target.value);
+                      }}
+                    >
+                      <option value="" defaultValue>
+                        - select a column to group by -
+                      </option>
+                      <option value="AllData">Show All</option>
+                      {columnNames &&
+                        columnNames.map((data) => {
+                          return (
+                            <option key={data} value={data}>
+                              {data}
+                            </option>
+                          );
+                        })}
+                    </SelectInput>
+                    {groupByColumn && groupByColumn != "AllData" && (
+                      <SelectInput
+                        style={{ width: "100%" }}
+                        onChange={(e) => {
+                          setSelectedGroupColumn(e.target.value);
+                        }}
+                      >
+                        <option value="" defaultValue>
+                          - Select the {groupByColumn} -
+                        </option>
+
+                        {groupedColumnNames &&
+                          groupedColumnNames.map((group) => {
+                            return (
+                              <option key={group} value={group}>
+                                {group}
+                              </option>
+                            );
+                          })}
+                      </SelectInput>
+                    )}
+                  </>
+                )}
+              </>
+            )}
+          </SelectBlock>
+
+          <BodyData className="scrollBar">
+            {bodyInfo ? (
+              columnNames.map((data, idx) => {
+                return (
+                  <BodyItem key={data}>
+                    <ColumnTitle>{data}:</ColumnTitle>
+                    <ColumnData>{bodyInfo[data]}</ColumnData>
+                  </BodyItem>
+                );
+              })
+            ) : (
+              <BodyItem>
+                <ColumnData>{introData}</ColumnData>
+              </BodyItem>
+            )}
+          </BodyData>
+        </BodyContainer>
+      </LeftColumn>
+      <RightColumn ref={dataRef}>
+        {groupedColumnData?.length > 0 && isNumberColumn ? (
+          <ConvertedData
+            key={groupedColumnData + selectedColumn}
+            circleData={groupedColumnData}
+            largestCircle={largestCircle}
+            selectedColumn={selectedColumn}
+            maxRadius={largestRadius}
+            showCircleData={displayData}
+          />
+        ) : (
+          importedData.length == 0 && (
+            <h1
+              style={{ color: "gray", textAlign: "center", marginTop: "2vh" }}
+            >
+              Drag and Drop a .CSV file
+            </h1>
+          )
+        )}
+      </RightColumn>
+    </MainContainer>
+  );
+};
+
+export default DataViz;
+
 const MainContainer = styled.div`
   display: flex;
   height: calc(100vh - 80px);
@@ -128,302 +419,3 @@ const ColumnData = styled.p`
   @media screen and (max-width: 1100px) {
   }
 `;
-
-const DataViz = () => {
-  const width = 1200;
-  const height = 800;
-
-  const dataRef = useRef(null);
-  const [dimensions, setDimensions] = useState();
-  const [highlighted, setHighlighted] = useState(false);
-  const [columnNames, setColumnNames] = useState([]);
-  const [selectedColumn, setSelectedColumn] = useState("");
-  const [importedData, setImportedData] = useState([]);
-  const [largestCircle, setLargestCircle] = useState(0);
-  const [isNumberColumn, setIsNumberColumn] = useState(false);
-  const [largestRadius, setLargestRadius] = useState(0);
-  const [bodyInfo, setBodyInfo] = useState();
-  const [introData, setIntroData] = useState(
-    "A basic data visualizer that converts data from a .CSV file and displays them as movable objects."
-  );
-  const [groupByColumn, setGroupByColumn] = useState();
-  const [groupedColumnNames, setGroupedColumnNames] = useState([]);
-  const [selectedGroupColumn, setSelectedGroupColumn] = useState();
-  const [groupedColumnData, setGroupedColumnData] = useState();
-
-  const getRandomInt = (min, max) => {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min) + min);
-  };
-
-  useEffect(() => {
-    let asd = dataRef.current.getBoundingClientRect();
-    setDimensions({ width: asd.width, height: asd.height });
-  }, []);
-
-  useEffect(() => {
-    if (importedData.length > 0) {
-      setColumnNames(Object.keys(importedData[0]));
-    }
-  }, [importedData]);
-
-  useEffect(() => {
-    if (dimensions && importedData) {
-      let addArray = [];
-      let largestNum = Math.max.apply(
-        Math,
-        importedData.map(function (o) {
-          addArray.push(Math.floor(o[selectedColumn]));
-          return o[selectedColumn];
-        })
-      );
-      let sum = addArray.reduce((a, b) => a + b, 0);
-      let multi = 1.2;
-      let maxRadius = 170;
-
-      if (window.innerWidth < 1100) {
-        multi = 1.7;
-      }
-
-      let allowedRad = Math.floor(
-        (dimensions.width + dimensions.height) / multi
-      );
-      let totalRad = Math.floor((sum / largestNum) * maxRadius);
-
-      while (totalRad > allowedRad) {
-        maxRadius -= 2;
-        totalRad = Math.floor((sum / largestNum) * maxRadius);
-      }
-
-      setLargestRadius(maxRadius);
-      setIsNumberColumn(false);
-
-      if (Number.isInteger(Math.floor(largestNum))) {
-        setIsNumberColumn(true);
-        setIntroData("Click on an object to display related data");
-      } else {
-        setBodyInfo("");
-      }
-
-      setLargestCircle(largestNum);
-    }
-  }, [selectedColumn, dimensions]);
-
-  const displayData = (b) => {
-    setBodyInfo(b);
-  };
-
-  const convertFiles = (x) => {
-    setHighlighted(false);
-
-    Array.from(x)
-      .filter((file) => file.type === "application/vnd.ms-excel")
-      .forEach(async (file) => {
-        const text = await file.text();
-
-        const result = parse(text, {
-          header: true,
-          skipEmptyLines: true,
-          preview: 50,
-        });
-
-        setImportedData(result.data);
-        setIntroData(
-          "Only columns that contain numbers can be displayed as objects. Refresh the page if any issues occur (usually when columns are changed)"
-        );
-      });
-  };
-
-  useEffect(() => {
-    if (groupByColumn && groupByColumn != "AllData") {
-      let group = importedData.reduce((r, a) => {
-        r[a[groupByColumn]] = [...(r[a[groupByColumn]] || []), a];
-        return r;
-      }, {});
-      let nameOfColumns = [];
-      const cols = Object.keys(group).map((item) => {
-        nameOfColumns.push(item);
-      });
-
-      setGroupedColumnNames(nameOfColumns);
-    }
-  }, [groupByColumn]);
-
-  useEffect(() => {
-    if (groupByColumn != "AllData") {
-      const result = importedData.filter(
-        (word) => word[groupByColumn] == selectedGroupColumn
-      );
-      setGroupedColumnData(result);
-    }
-  }, [selectedGroupColumn]);
-
-  useEffect(() => {
-    if (groupByColumn == "AllData") {
-      setGroupedColumnData(importedData);
-    }
-  }, [groupByColumn]);
-  return (
-    <MainContainer
-      onDragOver={(e) => {
-        e.preventDefault();
-      }}
-      onDrop={(e) => {
-        e.preventDefault();
-        convertFiles(e.dataTransfer.files);
-      }}
-    >
-      <LeftColumn
-        highlighted={highlighted}
-        onDragEnter={() => {
-          setHighlighted(true);
-        }}
-        onDragLeave={() => {
-          setHighlighted(false);
-        }}
-      >
-        <BodyContainer>
-          <SelectBlock>
-            {importedData.length == 0 && (
-              <>
-                <input
-                  type="file"
-                  onChange={(e) => {
-                    convertFiles(e.target.files);
-                  }}
-                  style={{
-                    marginBottom: "20px",
-                    borderRadius: "5px",
-                    width: "100%",
-                  }}
-                />
-                <Button
-                  primary
-                  fontBig
-                  onClick={() => {
-                    setImportedData(SampleData);
-                    console.log(SampleData);
-                    setIntroData(
-                      "Only columns that contain numbers can be displayed as objects. Refresh the page if any issues occur (usually when columns are changed)."
-                    );
-                  }}
-                  style={{
-                    marginBottom: "20px",
-                  }}
-                >
-                  Load Sample Data
-                </Button>
-              </>
-            )}
-            {importedData.length > 0 && (
-              <>
-                <SelectInput
-                  style={{ width: "100%" }}
-                  onChange={(e) => {
-                    setSelectedColumn(e.target.value);
-                  }}
-                >
-                  <option value="" defaultValue>
-                    - select a column with numbers -
-                  </option>
-                  {columnNames &&
-                    columnNames.map((data) => {
-                      return (
-                        <option key={data} value={data}>
-                          {data}
-                        </option>
-                      );
-                    })}
-                </SelectInput>
-                {selectedColumn && (
-                  <>
-                    <SelectInput
-                      style={{ width: "100%" }}
-                      onChange={(e) => {
-                        setGroupByColumn(e.target.value);
-                      }}
-                    >
-                      <option value="" defaultValue>
-                        - select a column to group by -
-                      </option>
-                      <option value="AllData">Show All</option>
-                      {columnNames &&
-                        columnNames.map((data) => {
-                          return (
-                            <option key={data} value={data}>
-                              {data}
-                            </option>
-                          );
-                        })}
-                    </SelectInput>
-                    {groupByColumn && groupByColumn != "AllData" && (
-                      <SelectInput
-                        style={{ width: "100%" }}
-                        onChange={(e) => {
-                          setSelectedGroupColumn(e.target.value);
-                        }}
-                      >
-                        <option value="" defaultValue>
-                          - Select the {groupByColumn} -
-                        </option>
-
-                        {groupedColumnNames &&
-                          groupedColumnNames.map((group) => {
-                            return (
-                              <option key={group} value={group}>
-                                {group}
-                              </option>
-                            );
-                          })}
-                      </SelectInput>
-                    )}
-                  </>
-                )}
-              </>
-            )}
-          </SelectBlock>
-
-          <BodyData className="scrollBar">
-            {bodyInfo ? (
-              columnNames.map((data, idx) => {
-                return (
-                  <BodyItem key={data}>
-                    <ColumnTitle>{data}:</ColumnTitle>
-                    <ColumnData>{bodyInfo[data]}</ColumnData>
-                  </BodyItem>
-                );
-              })
-            ) : (
-              <BodyItem>
-                <ColumnData>{introData}</ColumnData>
-              </BodyItem>
-            )}
-          </BodyData>
-        </BodyContainer>
-      </LeftColumn>
-      <RightColumn ref={dataRef}>
-        {groupedColumnData?.length > 0 && isNumberColumn ? (
-          <ConvertedData
-            key={selectedGroupColumn + selectedColumn}
-            circleData={groupedColumnData}
-            largestCircle={largestCircle}
-            selectedColumn={selectedColumn}
-            maxRadius={largestRadius}
-            showCircleData={displayData}
-          />
-        ) : (
-          importedData.length == 0 && (
-            <h1
-              style={{ color: "gray", textAlign: "center", marginTop: "2vh" }}
-            >
-              Drag and Drop a .CSV file
-            </h1>
-          )
-        )}
-      </RightColumn>
-    </MainContainer>
-  );
-};
-
-export default DataViz;
