@@ -11,7 +11,7 @@ export const ConvertedData = ({
   maxRadius,
   showCircleData,
 }) => {
-  const [importedCircleData, setImportedCircleData] = useState(circleData);
+  const [importedCircleData] = useState(circleData);
   const boxRef = useRef(null);
   const canvasRef = useRef(null);
   const [constraints, setContraints] = useState();
@@ -39,8 +39,6 @@ export const ConvertedData = ({
       engine: engine,
       canvas: canvasRef.current,
       options: {
-        // width: window.innerWidth,
-        // height: window.innerHeight - 300,
         background: "white",
         wireframes: false,
       },
@@ -79,15 +77,7 @@ export const ConvertedData = ({
 
     setContraints(boxRef.current.getBoundingClientRect());
     setScene(render);
-
-    // window.addEventListener("resize", handleResize);
   }, []);
-
-  // useEffect(() => {
-  //   return () => {
-  //     window.removeEventListener("resize", handleResize);
-  //   };
-  // }, []);
 
   useEffect(() => {
     if (constraints) {
@@ -165,17 +155,13 @@ export const ConvertedData = ({
       let centerX = width / 2;
       let centerY = height / 2;
 
-      var mouse = Matter.Mouse.create(scene.canvas);
-
       if (!firstBall) {
         let attractiveBody = Matter.Bodies.circle(centerX, centerY, 0, {
           isStatic: true,
           restitution: PARTICLE_BOUNCYNESS,
-          // example of an attractor function that
-          // returns a force vector that applies to bodyB
           plugin: {
             attractors: [
-              function (bodyA, bodyB) {
+              (bodyA, bodyB) => {
                 return {
                   x: (bodyA.position.x - bodyB.position.x) * 1e-6,
                   y: (bodyA.position.y - bodyB.position.y) * 1e-6,
@@ -191,23 +177,25 @@ export const ConvertedData = ({
       }
 
       importedCircleData.forEach((element) => {
-        let randomX = Math.floor(Math.random() * -width) + width;
-        let randomY = Math.floor(Math.random() * -height) + height;
+        if (element[selectedColumn]) {
+          let randomX = Math.floor(Math.random() * -width) + width;
+          let randomY = Math.floor(Math.random() * -height) + height;
 
-        let bodySize = Math.floor(
-          (element[selectedColumn] / largestCircle) * maxRadius
-        );
+          let bodySize = Math.floor(
+            (element[selectedColumn] / largestCircle) * maxRadius
+          );
 
-        let normalBody = Matter.Bodies.circle(randomX, randomY, bodySize, {
-          label: element,
-          restitution: PARTICLE_BOUNCYNESS,
-        });
+          let normalBody = Matter.Bodies.circle(randomX, randomY, bodySize, {
+            label: element,
+            restitution: PARTICLE_BOUNCYNESS,
+          });
 
-        Matter.World.add(scene.engine.world, normalBody);
+          Matter.World.add(scene.engine.world, normalBody);
+        }
       });
 
       scene.mouse = Matter.Mouse.create(scene.canvas);
-      var mouseInteractivity = Matter.MouseConstraint.create(scene.engine, {
+      let mouseInteractivity = Matter.MouseConstraint.create(scene.engine, {
         mouse: scene.mouse,
         constraint: {
           stiffness: 0.2,
@@ -217,33 +205,20 @@ export const ConvertedData = ({
 
       Matter.World.add(scene.engine.world, mouseInteractivity);
 
-      // Create a On-Mouseup Event-Handler
-      Matter.Events.on(mouseInteractivity, "mouseup", function (event) {
-        var mouseConstraint = event.source;
-        var bodies = scene.engine.world.bodies;
-
-        // console.log(bodies);
-        // console.log(mouseConstraint);
+      Matter.Events.on(mouseInteractivity, "mousedown", (event) => {
+        let mouseConstraint = event.source;
+        let bodies = scene.engine.world.bodies;
 
         if (!mouseConstraint.bodyB) {
           for (let i = 0; i < bodies.length; i++) {
-            var body = bodies[i];
+            let body = bodies[i];
             if (
               Matter.Bounds.contains(
                 body.bounds,
                 mouseConstraint.mouse.position
               )
             ) {
-              // var bodyUrl = body.url;
-              // console.log("Body.Url >> " + bodyUrl);
-              // // Hyperlinking feature
-              // if (bodyUrl != undefined) {
-              //   window.open(bodyUrl, "_blank");
-              //   console.log("Hyperlink was opened");
-              // }
-              // setFirstName(body.label);
-              showCircleData(body.label);
-              // console.log(body);
+              showCircleData(body?.label);
               break;
             }
           }
@@ -260,18 +235,6 @@ export const ConvertedData = ({
         height: "100%",
       }}
     >
-      {/* <button
-        style={{
-          cursor: "pointer",
-          textAlign: "center",
-          marginBottom: "16px",
-        }}
-        onClick={() => handleClick()}
-      >
-        Click me - (refresh the page if something goes wrong, or if gravity
-        doesn't work)
-      </button> */}
-
       <div
         ref={boxRef}
         style={{

@@ -60,7 +60,7 @@ const DataViz = () => {
       let addArray = [];
       let largestNum = Math.max.apply(
         Math,
-        importedData.map(function (o) {
+        importedData.map((o) => {
           addArray.push(Math.floor(o[selectedColumn]));
           return o[selectedColumn];
         })
@@ -95,6 +95,16 @@ const DataViz = () => {
 
       setLargestCircle(largestNum);
     }
+
+    if (selectedColumn) {
+      let tempArr = [...columnNames];
+      tempArr.sort();
+      const index = tempArr.indexOf(selectedColumn);
+      let item = tempArr.splice(index, 1);
+      tempArr.splice(0, 0, item[0]);
+
+      setColumnNames(tempArr);
+    }
   }, [selectedColumn, dimensions]);
 
   const displayData = (b) => {
@@ -117,7 +127,7 @@ const DataViz = () => {
 
         setImportedData(result.data);
         setIntroData(
-          "Only columns that contain numbers can be displayed as objects. Refresh the page if any issues occur (usually when columns are changed)"
+          "Only columns that contain numbers can be displayed as objects. Refresh the page if any performance issues occur."
         );
       });
   };
@@ -151,6 +161,7 @@ const DataViz = () => {
       setGroupedColumnData(importedData);
     }
   }, [groupByColumn]);
+
   return (
     <MainContainer
       onDragOver={(e) => {
@@ -275,17 +286,17 @@ const DataViz = () => {
 
           <BodyData className="scrollBar">
             {bodyInfo ? (
-              columnNames.map((data) => {
+              columnNames?.map((data) => {
                 return (
                   <BodyItem key={data}>
-                    <ColumnTitle>{data}:</ColumnTitle>
-                    <ColumnData>{bodyInfo[data]}</ColumnData>
+                    <h4>{data}:</h4>
+                    <p>{bodyInfo[data]}</p>
                   </BodyItem>
                 );
               })
             ) : (
               <BodyItem>
-                <ColumnData>{introData}</ColumnData>
+                <p>{introData}</p>
               </BodyItem>
             )}
           </BodyData>
@@ -394,6 +405,7 @@ const BodyData = styled.div`
   flex-direction: column;
   align-items: left;
   overflow-y: auto;
+
   @media screen and (max-width: 1100px) {
     flex-direction: row;
     overflow-x: auto;
@@ -410,9 +422,41 @@ const BodyItem = styled.div`
   align-items: left;
   border-top: solid 1px #2a343c;
 
+  &:first-child {
+    border-top: solid 1px #4b59f7;
+    background-color: #4b59f7;
+
+    &:hover {
+      transition: all 0.3s ease-out;
+      background: #0467fb;
+    }
+  }
+
+  &:nth-child(2) {
+    border-top: solid 1px #4b59f7;
+    @media screen and (max-width: 1100px) {
+      border-top: solid 1px #2a343c;
+    }
+  }
+
   &:hover {
     transition: all 0.3s ease-out;
     background: #2a343c;
+  }
+
+  h4 {
+    font-size: 22px;
+    font-weight: normal;
+    text-transform: capitalize;
+    margin-bottom: 4px;
+    @media screen and (max-width: 1100px) {
+      margin-top: 5px;
+    }
+  }
+
+  p {
+    font-size: 17px;
+    align-self: right;
   }
 
   @media screen and (max-width: 1100px) {
@@ -421,21 +465,5 @@ const BodyItem = styled.div`
     border-right: solid 1px #2a343c;
     padding: 10px 25px;
     border-bottom: solid 1px #2a343c;
-  }
-`;
-
-const ColumnTitle = styled.p`
-  font-size: 22px;
-  text-transform: capitalize;
-  margin-bottom: 4px;
-  @media screen and (max-width: 1100px) {
-    margin-top: 5px;
-  }
-`;
-
-const ColumnData = styled.p`
-  font-size: 17px;
-  align-self: right;
-  @media screen and (max-width: 1100px) {
   }
 `;
