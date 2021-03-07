@@ -11,6 +11,7 @@ const DataViz = () => {
   const [dimensions, setDimensions] = useState();
   const [highlighted, setHighlighted] = useState(false);
   const [columnNames, setColumnNames] = useState([]);
+  const [numberColumnNames, setNumberColumnNames] = useState([]);
   const [selectedColumn, setSelectedColumn] = useState("");
   const [importedData, setImportedData] = useState([]);
   const [largestCircle, setLargestCircle] = useState(0);
@@ -32,7 +33,25 @@ const DataViz = () => {
 
   useEffect(() => {
     if (importedData.length > 0) {
-      setColumnNames(Object.keys(importedData[0]));
+      const keys = Object.keys(importedData[0]);
+      setColumnNames(keys);
+
+      let names = [...keys];
+
+      importedData.forEach((element) => {
+        Object.keys(element).forEach((key) => {
+          if (isNaN(element[key])) {
+            if (names.includes(key)) {
+              const index = names.indexOf(key);
+              if (index > -1) {
+                names.splice(index, 1);
+              }
+            }
+          }
+        });
+      });
+
+      setNumberColumnNames(names);
     }
   }, [importedData]);
 
@@ -124,7 +143,6 @@ const DataViz = () => {
         (word) => word[groupByColumn] == selectedGroupColumn
       );
       setGroupedColumnData(result);
-      // console.log(result);
     }
   }, [selectedGroupColumn]);
 
@@ -174,7 +192,7 @@ const DataViz = () => {
                     setImportedData(SampleData);
                     // console.log(SampleData);
                     setIntroData(
-                      "Only columns that contain numbers can be displayed as objects. Refresh the page if any issues occur (usually when columns are changed)."
+                      "Only columns that contain numbers can be displayed as objects. Refresh the page if any performance issues occur."
                     );
                   }}
                   style={{
@@ -191,13 +209,14 @@ const DataViz = () => {
                   style={{ width: "100%" }}
                   onChange={(e) => {
                     setSelectedColumn(e.target.value);
+                    setGroupByColumn("AllData");
                   }}
                 >
                   <option value="" defaultValue>
-                    - select a column with numbers -
+                    - select a column to display -
                   </option>
-                  {columnNames &&
-                    columnNames.map((data) => {
+                  {numberColumnNames &&
+                    numberColumnNames.map((data) => {
                       return (
                         <option key={data} value={data}>
                           {data}
@@ -208,6 +227,7 @@ const DataViz = () => {
                 {selectedColumn && (
                   <>
                     <SelectInput
+                      key={selectedColumn}
                       style={{ width: "100%" }}
                       onChange={(e) => {
                         setGroupByColumn(e.target.value);
@@ -255,7 +275,7 @@ const DataViz = () => {
 
           <BodyData className="scrollBar">
             {bodyInfo ? (
-              columnNames.map((data, idx) => {
+              columnNames.map((data) => {
                 return (
                   <BodyItem key={data}>
                     <ColumnTitle>{data}:</ColumnTitle>
