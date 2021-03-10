@@ -11,7 +11,6 @@ export const portfolioSection = {
   lightText: false,
   lightTextDesc: false,
   logoName: "Github",
-  logoName2: "Data",
   topLine: "Created with React",
   headline: "My Portfolio Website",
   description: "A showcase of my projects",
@@ -21,11 +20,7 @@ export const portfolioSection = {
   img: require("../../images/react-logo.svg").default,
   alt: "React Logo",
   start: "",
-  extraBtn: true,
-  btnLink2: "/DataViz",
-  buttonLabel2: "Data Visualizer",
   Icon: <FaGithub />,
-  Icon2: <FaChartPie />,
 };
 
 export const aboutMeSection = {
@@ -201,11 +196,11 @@ export const dietTrackerSection = {
 
 export const planStudyOptionsSection = {
   id: "planStudyOptions",
-  primary: false,
-  lightBg: true,
-  lightTopLine: false,
-  lightText: false,
-  lightTextDesc: false,
+  primary: true,
+  lightBg: false,
+  lightTopLine: true,
+  lightText: true,
+  lightTextDesc: true,
   techsUsed: true,
   logoName: "Github",
   topLine: "WPF | Caliburn Micro",
@@ -410,4 +405,51 @@ export const intercity = {
   alt: "Skills",
   start: "",
   Icon: <FaGithub />,
+};
+
+export const dataVisualizer = {
+  id: "dataVisualizer",
+  primary: false,
+  lightBg: true,
+  lightTopLine: false,
+  lightText: false,
+  lightTextDesc: false,
+  techsUsed: true,
+  logoName: "Github",
+  youtubeVideo: true,
+  youtubeUrl: "LqohZKeawQo",
+  topLine: "React | MatterJs",
+  headline: "Data Visualizer",
+  description:
+    "A data visualizer that converts data from a .CSV file and displays them as movable objects. Uses a physics engine to render objects, representing the uploaded data.",
+  logoName2: "Data",
+  extraBtn: true,
+  btnLink2: "/DataViz",
+  buttonLabel2: "Data Visualizer",
+  description3: "Technologies used:",
+  buttonLabel: "Source Code",
+  buttonLabel2: "Live Demo",
+  btnLink1:
+    "https://github.com/hashimkhanzada/react-portfolio-website/tree/master/src/pages/DataVisualizerPage",
+  imgStart: "",
+
+  logoInfo: [
+    {
+      imgUrl: require("../../images/react.svg").default,
+      tipText: "React Js",
+    },
+    {
+      imgUrl: require("../../images/javascript.svg").default,
+      tipText: "JavaScript",
+    },
+    {
+      imgUrl: require("../../images/matterjs.svg").default,
+      tipText: "Matter JS",
+    },
+  ],
+
+  alt: "Skills",
+  start: "",
+  Icon: <FaGithub />,
+  Icon2: <FaChartPie />,
 };

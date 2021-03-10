@@ -7,6 +7,7 @@ import {
   vueApp,
   tuckbox,
   intercity,
+  dataVisualizer,
 } from "./Data";
 import { InfoSection } from "../../components";
 
@@ -17,9 +18,10 @@ function Home() {
       <InfoSection {...aboutMeSection} />
       <InfoSection {...dietTrackerSection} />
       <InfoSection {...intercity} />
+      <InfoSection {...dataVisualizer} />
       <InfoSection {...planStudyOptionsSection} />
-      <InfoSection {...tuckbox} />
       <InfoSection {...vueApp} />
+      <InfoSection {...tuckbox} />
     </>
   );
 }

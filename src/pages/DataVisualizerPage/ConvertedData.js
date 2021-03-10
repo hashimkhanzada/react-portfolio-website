@@ -178,12 +178,12 @@ export const ConvertedData = ({
 
       importedCircleData.forEach((element) => {
         if (element[selectedColumn]) {
+          let value = Math.max(0, element[selectedColumn]);
+
           let randomX = Math.floor(Math.random() * -width) + width;
           let randomY = Math.floor(Math.random() * -height) + height;
 
-          let bodySize = Math.floor(
-            (element[selectedColumn] / largestCircle) * maxRadius
-          );
+          let bodySize = Math.floor((value / largestCircle) * maxRadius);
 
           let normalBody = Matter.Bodies.circle(randomX, randomY, bodySize, {
             label: element,

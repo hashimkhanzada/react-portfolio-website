@@ -122,7 +122,7 @@ const DataViz = () => {
         const result = parse(text, {
           header: true,
           skipEmptyLines: true,
-          preview: 50,
+          preview: 70,
         });
 
         setImportedData(result.data);
@@ -139,7 +139,7 @@ const DataViz = () => {
         return r;
       }, {});
       let nameOfColumns = [];
-      const cols = Object.keys(group).map((item) => {
+      Object.keys(group).map((item) => {
         nameOfColumns.push(item);
       });
 
@@ -305,7 +305,11 @@ const DataViz = () => {
       <RightColumn ref={dataRef}>
         {groupedColumnData?.length > 0 && isNumberColumn ? (
           <ConvertedData
-            key={groupedColumnData + selectedColumn}
+            key={
+              groupedColumnData[0][groupByColumn] +
+              selectedColumn +
+              groupedColumnData
+            }
             circleData={groupedColumnData}
             largestCircle={largestCircle}
             selectedColumn={selectedColumn}
