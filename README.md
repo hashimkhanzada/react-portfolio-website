@@ -1,1 +1,1 @@
-A website that contains a demo of my recent project.
+A website that showcases my skills. Contains a demo of all my recent projects.
