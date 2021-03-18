@@ -1,23 +1,25 @@
-name: Deploy to gh pages
-
+name: Deploy to github pages
 on:
   push:
-    branches: [ master ]
-
-  workflow_dispatch:
-
+    branches:
+      - master
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    strategy:
+      matrix:
+        node-version: [14.x]
     steps:
-      - name: Checkout branch
-        uses: actions/checkout@v2
-
-      - name: Clean install dependencies
-        run: npm ci
-
-      - name: Run deploy script
-        run: |
-          git config user.name "hashimkhanzada" && git config user.email "hashimkhanzada@gmail.com"
-          CI= npm run deploy
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Install Packages
+      run: npm install
+    - name: Deploy to GH Pages
+      run: |
+        git config --global user.email ${{secrets.MY_EMAIL}}
+        git config --global user.name ${{secrets.MY_USERNAME}}
+        git remote set-url origin https://${{secrets.PORTFOLIO_ACCESS_TOKEN}}@github.com/${{secrets.PORTFOLIO_ACCESS_TOKEN}}/react-portfolio-website.git
+        npm run deploy
