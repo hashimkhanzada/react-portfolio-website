@@ -1,7 +1,7 @@
 import { AiOutlineFileZip } from "react-icons/ai";
 import { SiAzuredevops } from "react-icons/si";
-
-import { FaGithub, FaFilePdf, FaYoutube, FaChartPie } from "react-icons/fa";
+import { IoBusSharp } from "react-icons/io5";
+import { FaGithub, FaFilePdf, FaChartPie } from "react-icons/fa";
 
 export const portfolioSection = {
   id: "portfolio",
@@ -10,7 +10,6 @@ export const portfolioSection = {
   lightTopLine: false,
   lightText: false,
   lightTextDesc: false,
-  logoName: "Github",
   topLine: "Created with React",
   headline: "My Portfolio Website",
   description: "A showcase of my projects",
@@ -32,13 +31,12 @@ export const aboutMeSection = {
   lightTextDesc: true,
   skills: true,
   techsUsed: false,
-  logoName: "Resume",
   AboutMeHeader: "ABOUT ME",
   headline: "Full-stack .NET developer",
   description:
-    "A software engineering graduate of UCOL, with a passion for developing exciting software.",
+    "Software engineering graduate of UCOL, with a passion for developing exciting software.",
   description2:
-    "A fast learner with strong time management and problem solving skills. I've successfully worked on multiple team projects during my degree, where communication skills and teamwork is essential. ",
+    "A fast learner with strong time management and problem solving skills. I've successfully worked on multiple team projects during my degree, using agile based methodologies and DevOps tools, where communication skills and teamwork is essential. ",
   buttonLabel: "View Resume",
   btnLink1: require("../../images/hashim-cv.pdf").default,
   imgStart: "start",
@@ -68,15 +66,6 @@ export const aboutMeSection = {
       imgUrl: require("../../images/jquery.svg").default,
       tipText: "jQuery",
     },
-
-    {
-      imgUrl: require("../../images/html.svg").default,
-      tipText: "HTML",
-    },
-    {
-      imgUrl: require("../../images/css.svg").default,
-      tipText: "CSS",
-    },
     {
       imgUrl: require("../../images/javascript.svg").default,
       tipText: "JavaScript",
@@ -85,22 +74,29 @@ export const aboutMeSection = {
       imgUrl: require("../../images/typescript.svg").default,
       tipText: "TypeScript",
     },
+
+    {
+      imgUrl: require("../../images/nodejslogo.svg").default,
+      tipText: "Node Js",
+    },
     {
       imgUrl: require("../../images/azure.svg").default,
       tipText: "Azure",
     },
     {
+      imgUrl: require("../../images/dockerlogo.svg").default,
+      tipText: "Docker",
+    },
+
+    {
       imgUrl: require("../../images/firebase.svg").default,
       tipText: "Firebase",
     },
     {
-      imgUrl: require("../../images/vue.svg").default,
-      tipText: "Vue Js",
+      imgUrl: require("../../images/git-icon.svg").default,
+      tipText: "Git",
     },
-    {
-      imgUrl: require("../../images/kotlin.svg").default,
-      tipText: "Kotlin",
-    },
+
     {
       imgUrl: require("../../images/materialui.svg").default,
       tipText: "Material UI",
@@ -109,10 +105,18 @@ export const aboutMeSection = {
       imgUrl: require("../../images/xamarin.svg").default,
       tipText: "Xamarin",
     },
+    {
+      imgUrl: require("../../images/vue.svg").default,
+      tipText: "Vue Js",
+    },
 
     {
-      imgUrl: require("../../images/java.svg").default,
-      tipText: "Java",
+      imgUrl: require("../../images/html.svg").default,
+      tipText: "HTML",
+    },
+    {
+      imgUrl: require("../../images/css.svg").default,
+      tipText: "CSS",
     },
 
     {
@@ -123,10 +127,6 @@ export const aboutMeSection = {
     {
       imgUrl: require("../../images/efcore.svg").default,
       tipText: "Entity Framework Core",
-    },
-    {
-      imgUrl: require("../../images/git-icon.svg").default,
-      tipText: "Git",
     },
   ],
 
@@ -143,8 +143,6 @@ export const dietTrackerSection = {
   lightText: false,
   lightTextDesc: false,
   techsUsed: true,
-  logoName: "Github",
-  logoName2: "Youtube",
   youtubeVideo: true,
   youtubeUrl: "h5HO1Ii3xj8",
   topLine: "Industry Project - sponsored by UCOL",
@@ -202,7 +200,6 @@ export const planStudyOptionsSection = {
   lightText: true,
   lightTextDesc: true,
   techsUsed: true,
-  logoName: "Github",
   topLine: "WPF | Caliburn Micro",
   headline: "Plan Study Options",
   description:
@@ -254,8 +251,6 @@ export const vueApp = {
   lightText: false,
   lightTextDesc: false,
   techsUsed: true,
-  logoName: "Azure",
-  logoName2: "Youtube",
   youtubeVideo: true,
   youtubeUrl: "lmg2hHx8lVA",
   topLine: "VueJs | Vuetify",
@@ -301,8 +296,6 @@ export const tuckbox = {
   lightTextDesc: true,
   techsUsed: true,
   download: true,
-  logoName: "Zip",
-  logoName2: "Youtube",
   youtubeVideo: true,
   youtubeUrl: "8MQ8BU053t8",
   topLine: "JAVA | KOTLIN",
@@ -354,19 +347,20 @@ export const intercity = {
   lightText: true,
   lightTextDesc: true,
   techsUsed: true,
-  logoName: "Github",
   youtubeVideo: true,
   youtubeUrl: "h4NJGhGGyrI",
-  // logoName2: "Youtube",
-  // extraBtn: true,
+  extraBtn: true,
   topLine: ".NET Web API | React",
   headline: "InterCity Clone",
   description:
-    "An InterCity clone web application built with React and .NET 5 Web API. Users are able to search for trips and book them accordingly. They can also manage their bookings using a unique reference number provided to them.",
-
+    "An InterCity clone web application built with React and .NET 5 Web API. Users are able to search for trips and book / manage them accordingly.",
+  description2:
+    "The app uses Google cloud SQL as its database. The API has been containerized using docker and deployed on Azure, with the front-end deployed on netlify.",
   description3: "Technologies used:",
   buttonLabel: "Source Code",
+  buttonLabel2: "Visit Site",
   btnLink1: "https://github.com/hashimkhanzada/InterCityClone",
+  btnLink2: "https://intercityclone.netlify.app/",
   imgStart: "",
   img: require("../../images/travel.svg").default,
 
@@ -383,28 +377,28 @@ export const intercity = {
       imgUrl: require("../../images/react.svg").default,
       tipText: "React",
     },
-
-    {
-      imgUrl: require("../../images/javascript.svg").default,
-      tipText: "JavaScript",
-    },
     {
       imgUrl: require("../../images/typescript.svg").default,
       tipText: "TypeScript",
     },
     {
-      imgUrl: require("../../images/sql.svg").default,
-      tipText: "SQL Server",
+      imgUrl: require("../../images/cloudsql.svg").default,
+      tipText: "Google Cloud SQL",
     },
     {
       imgUrl: require("../../images/efcore.svg").default,
       tipText: "Entity Framework",
+    },
+    {
+      imgUrl: require("../../images/dockerlogo.svg").default,
+      tipText: "Docker",
     },
   ],
 
   alt: "Skills",
   start: "",
   Icon: <FaGithub />,
+  Icon2: <IoBusSharp />,
 };
 
 export const dataVisualizer = {
@@ -415,22 +409,22 @@ export const dataVisualizer = {
   lightText: false,
   lightTextDesc: false,
   techsUsed: true,
-  logoName: "Github",
   youtubeVideo: true,
   youtubeUrl: "LqohZKeawQo",
+  internalLink: true,
   topLine: "React | MatterJs",
   headline: "Data Visualizer",
   description:
     "A data visualizer that converts data from a .CSV file and displays them as movable objects. Uses a physics engine to render objects, representing the uploaded data.",
-  logoName2: "Data",
+
   extraBtn: true,
   btnLink2: "/DataViz",
-  buttonLabel2: "Data Visualizer",
   description3: "Technologies used:",
   buttonLabel: "Source Code",
   buttonLabel2: "Live Demo",
   btnLink1:
     "https://github.com/hashimkhanzada/react-portfolio-website/tree/master/src/pages/DataVisualizerPage",
+
   imgStart: "",
 
   logoInfo: [

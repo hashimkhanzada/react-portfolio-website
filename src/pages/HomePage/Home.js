@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   portfolioSection,
   dietTrackerSection,
@@ -11,7 +11,9 @@ import {
 } from "./Data";
 import { InfoSection } from "../../components";
 
-function Home() {
+const Home = () => {
+  const [moreProjects, setMoreProjects] = useState(false);
+
   return (
     <>
       <InfoSection {...portfolioSection} />
@@ -19,11 +21,29 @@ function Home() {
       <InfoSection {...dietTrackerSection} />
       <InfoSection {...intercity} />
       <InfoSection {...dataVisualizer} />
-      <InfoSection {...planStudyOptionsSection} />
-      <InfoSection {...vueApp} />
-      <InfoSection {...tuckbox} />
+
+      {moreProjects ? (
+        <>
+          <InfoSection {...planStudyOptionsSection} />
+          <InfoSection {...vueApp} />
+          <InfoSection {...tuckbox} />
+        </>
+      ) : (
+        <h3
+          style={{
+            cursor: "pointer",
+            textAlign: "center",
+            padding: "2vh 0",
+            backgroundColor: "#101522",
+            color: "#f7f8fa",
+          }}
+          onClick={() => setMoreProjects(true)}
+        >
+          Click to see more projects
+        </h3>
+      )}
     </>
   );
-}
+};
 
 export default Home;

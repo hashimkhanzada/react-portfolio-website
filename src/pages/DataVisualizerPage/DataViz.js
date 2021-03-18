@@ -133,7 +133,7 @@ const DataViz = () => {
   };
 
   useEffect(() => {
-    if (groupByColumn && groupByColumn != "AllData") {
+    if (groupByColumn && groupByColumn !== "AllData") {
       let group = importedData.reduce((r, a) => {
         r[a[groupByColumn]] = [...(r[a[groupByColumn]] || []), a];
         return r;
@@ -148,16 +148,16 @@ const DataViz = () => {
   }, [groupByColumn]);
 
   useEffect(() => {
-    if (groupByColumn != "AllData") {
+    if (groupByColumn !== "AllData") {
       const result = importedData.filter(
-        (word) => word[groupByColumn] == selectedGroupColumn
+        (word) => word[groupByColumn] === selectedGroupColumn
       );
       setGroupedColumnData(result);
     }
   }, [selectedGroupColumn]);
 
   useEffect(() => {
-    if (groupByColumn == "AllData") {
+    if (groupByColumn === "AllData") {
       setGroupedColumnData(importedData);
     }
   }, [groupByColumn]);
@@ -183,7 +183,7 @@ const DataViz = () => {
       >
         <BodyContainer>
           <SelectBlock>
-            {importedData.length == 0 && (
+            {importedData.length === 0 && (
               <>
                 <input
                   type="file"
@@ -257,7 +257,7 @@ const DataViz = () => {
                           );
                         })}
                     </SelectInput>
-                    {groupByColumn && groupByColumn != "AllData" && (
+                    {groupByColumn && groupByColumn !== "AllData" && (
                       <SelectInput
                         style={{ width: "100%" }}
                         onChange={(e) => {
@@ -317,7 +317,7 @@ const DataViz = () => {
             showCircleData={displayData}
           />
         ) : (
-          importedData.length == 0 && (
+          importedData.length === 0 && (
             <h1
               style={{ color: "gray", textAlign: "center", marginTop: "2vh" }}
             >
@@ -352,9 +352,6 @@ const RightColumn = styled.div`
   width: 100%;
   height: 100%;
   background-color: #fff;
-
-  @media screen and (max-width: 1100px) {
-  }
 `;
 
 const LeftColumn = styled.div`
@@ -363,9 +360,6 @@ const LeftColumn = styled.div`
   flex: 0.25;
   background-color: ${({ highlighted }) =>
     highlighted ? "#4C5D6B" : "#3b4954"};
-
-  @media screen and (max-width: 1100px) {
-  }
 `;
 
 const SelectBlock = styled.div`
@@ -373,8 +367,6 @@ const SelectBlock = styled.div`
   flex-direction: column;
   justify-content: center;
   margin: 15px 20px;
-  @media screen and (max-width: 1100px) {
-  }
 `;
 
 const SelectInput = styled.select`

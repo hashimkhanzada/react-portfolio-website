@@ -1,13 +1,6 @@
 import React, { useState, useEffect } from "react";
-import {
-  FaBars,
-  FaTimes,
-  FaGithub,
-  FaLinkedin,
-  FaChartPie,
-} from "react-icons/fa";
+import { FaBars, FaTimes, FaGithub, FaLinkedin } from "react-icons/fa";
 import { IconContext } from "react-icons/lib";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { HiOutlineMail } from "react-icons/hi";
 
 import {
@@ -18,7 +11,6 @@ import {
   MobileIcon,
   NavMenu,
   NavItem,
-  NavLinks,
   SocialIconLink,
 } from "./Navbar.elements";
 
@@ -56,13 +48,6 @@ function Navbar() {
               {click ? <FaTimes /> : <FaBars />}
             </MobileIcon>
             <NavMenu onClick={handleClick} click={click}>
-              <NavItem>
-                <NavLinks to="/DataViz" onClick={closeMobileMenu}>
-                  <FaChartPie style={{ marginRight: "5px" }} />
-                  Data Visualizer
-                </NavLinks>
-              </NavItem>
-
               <NavItem>
                 <SocialIconLink
                   href={"https://github.com/hashimkhanzada"}

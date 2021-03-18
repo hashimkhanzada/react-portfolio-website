@@ -16,7 +16,6 @@ import {
   Subtitle3,
   ImgWrapper,
   Img,
-  Skills,
   ContainerHeader,
   ButtonItems,
   ButtonItem,
@@ -50,13 +49,12 @@ function InfoSection({
   imgStart,
   start,
   AboutMeHeader,
-  logoName,
-  logoName2,
   logoInfo,
   youtubeVideo,
   youtubeUrl,
   Icon,
   Icon2,
+  internalLink,
 }) {
   const [logos, setLogos] = useState([]);
   const [mobileView, setMobileView] = useState(false);
@@ -126,7 +124,7 @@ function InfoSection({
                   target="_blank"
                   aria-label="Logo"
                   download={download}
-                  rel="noopener"
+                  rel="noopener noreferrer"
                 >
                   <Button fontBig primary>
                     <ButtonItems>
@@ -135,7 +133,7 @@ function InfoSection({
                     </ButtonItems>
                   </Button>
                 </a>
-                {!extraBtn ? null : (
+                {!extraBtn ? null : internalLink ? (
                   <Link to="./DataViz">
                     <Button fontBig primary>
                       <ButtonItems>
@@ -144,6 +142,20 @@ function InfoSection({
                       </ButtonItems>
                     </Button>
                   </Link>
+                ) : (
+                  <a
+                    href={btnLink2}
+                    target="_blank"
+                    aria-label="Link"
+                    rel="noopener noreferrer"
+                  >
+                    <Button fontBig primary>
+                      <ButtonItems>
+                        <ButtonItem>{Icon2}</ButtonItem>
+                        <ButtonItem>{buttonLabel2}</ButtonItem>
+                      </ButtonItems>
+                    </Button>
+                  </a>
                 )}
               </TextWrapper>
             </InfoColumn>
