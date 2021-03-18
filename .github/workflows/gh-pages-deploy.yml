@@ -1,0 +1,19 @@
+name: Deploy to gh pages
+
+on:
+  push:
+    branches: [ master ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run deploy script
+        run: |
+          git config user.name "hashimkhanzada" && git config user.email "hashimkhanzada@gmail.com"
+          npm run deploy
