@@ -2,7 +2,7 @@ import React from "react";
 import GlobalStyle from "./globalStyles";
 import Home from "./pages/HomePage/Home";
 import DataViz from "./pages/DataVisualizerPage/DataViz";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import { Navbar } from "./components";
 import "./App.css";
 
