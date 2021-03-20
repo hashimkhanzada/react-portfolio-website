@@ -38,7 +38,7 @@ export const aboutMeSection = {
   description2:
     "A fast learner with strong time management and problem solving skills. I've successfully worked on multiple team projects during my degree, using agile based methodologies and DevOps tools, where communication skills and teamwork is essential. ",
   buttonLabel: "View Resume",
-  btnLink1: require("../../images/hashim-cv.pdf").default,
+  btnLink1: require("../../images/hashim-khanzada-resume.pdf").default,
   imgStart: "start",
   logoInfo: [
     {
