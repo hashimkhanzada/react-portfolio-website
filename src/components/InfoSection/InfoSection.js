@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Container, Button } from "../../globalStyles";
 import ReactTooltip from "react-tooltip";
 import Youtube from "react-youtube";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Link } from "react-router-dom";
 
 import {
   InfoSec,
@@ -77,8 +77,8 @@ function InfoSection({
   };
 
   const mobileOpts = {
-    height: "380",
-    width: "400",
+    height: "320",
+    width: "360",
     playersVars: {
       autoplay: 0,
     },

@@ -1,4 +1,4 @@
-import { AiOutlineFileZip } from "react-icons/ai";
+import { AiOutlineFileZip, AiOutlineShopping } from "react-icons/ai";
 import { SiAzuredevops } from "react-icons/si";
 import { IoBusSharp } from "react-icons/io5";
 import { FaGithub, FaFilePdf, FaChartPie } from "react-icons/fa";
@@ -61,10 +61,9 @@ export const aboutMeSection = {
       imgUrl: require("../../images/sql.svg").default,
       tipText: "SQL Server",
     },
-
     {
-      imgUrl: require("../../images/jquery.svg").default,
-      tipText: "jQuery",
+      imgUrl: require("../../images/nodejslogo.svg").default,
+      tipText: "Node Js",
     },
     {
       imgUrl: require("../../images/javascript.svg").default,
@@ -74,10 +73,9 @@ export const aboutMeSection = {
       imgUrl: require("../../images/typescript.svg").default,
       tipText: "TypeScript",
     },
-
     {
-      imgUrl: require("../../images/nodejslogo.svg").default,
-      tipText: "Node Js",
+      imgUrl: require("../../images/jquery.svg").default,
+      tipText: "jQuery",
     },
     {
       imgUrl: require("../../images/azure.svg").default,
@@ -87,7 +85,6 @@ export const aboutMeSection = {
       imgUrl: require("../../images/dockerlogo.svg").default,
       tipText: "Docker",
     },
-
     {
       imgUrl: require("../../images/firebase.svg").default,
       tipText: "Firebase",
@@ -109,7 +106,10 @@ export const aboutMeSection = {
       imgUrl: require("../../images/vue.svg").default,
       tipText: "Vue Js",
     },
-
+    {
+      imgUrl: require("../../images/mongodb-icon.svg").default,
+      tipText: "Mongo DB",
+    },
     {
       imgUrl: require("../../images/html.svg").default,
       tipText: "HTML",
@@ -118,12 +118,6 @@ export const aboutMeSection = {
       imgUrl: require("../../images/css.svg").default,
       tipText: "CSS",
     },
-
-    {
-      imgUrl: require("../../images/dapper.svg").default,
-      tipText: "Dapper",
-    },
-
     {
       imgUrl: require("../../images/efcore.svg").default,
       tipText: "Entity Framework Core",
@@ -190,6 +184,56 @@ export const dietTrackerSection = {
   ],
   start: "",
   Icon: <FaGithub />,
+};
+
+export const countdownClone = {
+  id: "countdownClone",
+  primary: true,
+  lightBg: false,
+  lightTopLine: true,
+  lightText: true,
+  lightTextDesc: true,
+  techsUsed: true,
+  youtubeVideo: true,
+  youtubeUrl: "DXltIa9UvBs",
+  extraBtn: true,
+  topLine: "React | NodeJs | MongoDB",
+  headline: "Countdown shop Clone",
+  description:
+    "Clone of the online Countdown web application, built with the MERN stack.",
+  description2:
+    "Uses JWT for user auth, and redux for state management. Users can browse / purchase items from the store, and view their order history.",
+  description3: "Technologies used:",
+  buttonLabel: "Source Code",
+  buttonLabel2: "Visit Site",
+  btnLink1: "https://github.com/hashimkhanzada/countdown-clone",
+  btnLink2: "https://countdown-clone.netlify.app/",
+  imgStart: "",
+  img: require("../../images/travel.svg").default,
+
+  logoInfo: [
+    {
+      imgUrl: require("../../images/nodejslogo.svg").default,
+      tipText: "Node Js",
+    },
+    {
+      imgUrl: require("../../images/react.svg").default,
+      tipText: "React",
+    },
+    {
+      imgUrl: require("../../images/typescript.svg").default,
+      tipText: "TypeScript",
+    },
+    {
+      imgUrl: require("../../images/mongodb-icon.svg").default,
+      tipText: "MongoDB",
+    },
+  ],
+
+  alt: "Skills",
+  start: "",
+  Icon: <FaGithub />,
+  Icon2: <AiOutlineShopping />,
 };
 
 export const planStudyOptionsSection = {
@@ -341,11 +385,11 @@ export const tuckbox = {
 
 export const intercity = {
   id: "intercity",
-  primary: true,
-  lightBg: false,
-  lightTopLine: true,
-  lightText: true,
-  lightTextDesc: true,
+  primary: false,
+  lightBg: true,
+  lightTopLine: false,
+  lightText: false,
+  lightTextDesc: false,
   techsUsed: true,
   youtubeVideo: true,
   youtubeUrl: "h4NJGhGGyrI",
@@ -403,11 +447,11 @@ export const intercity = {
 
 export const dataVisualizer = {
   id: "dataVisualizer",
-  primary: false,
-  lightBg: true,
-  lightTopLine: false,
-  lightText: false,
-  lightTextDesc: false,
+  primary: true,
+  lightBg: false,
+  lightTopLine: true,
+  lightText: true,
+  lightTextDesc: true,
   techsUsed: true,
   youtubeVideo: true,
   youtubeUrl: "LqohZKeawQo",

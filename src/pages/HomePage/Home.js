@@ -8,6 +8,7 @@ import {
   tuckbox,
   intercity,
   dataVisualizer,
+  countdownClone,
 } from "./Data";
 import { InfoSection } from "../../components";
 
@@ -19,6 +20,7 @@ const Home = () => {
       <InfoSection {...portfolioSection} />
       <InfoSection {...aboutMeSection} />
       <InfoSection {...dietTrackerSection} />
+      <InfoSection {...countdownClone} />
       <InfoSection {...intercity} />
       <InfoSection {...dataVisualizer} />
 

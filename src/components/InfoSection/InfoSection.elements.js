@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const InfoSec = styled.div`
   color: #fff;
-  padding: 265px 0;
+  padding: 190px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
