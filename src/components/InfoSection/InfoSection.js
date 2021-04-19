@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Container, Button } from "../../globalStyles";
 import ReactTooltip from "react-tooltip";
 import Youtube from "react-youtube";
-import { BrowserRouter as Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import {
   InfoSec,
@@ -134,14 +134,16 @@ function InfoSection({
                   </Button>
                 </a>
                 {!extraBtn ? null : internalLink ? (
-                  <Link to="./DataViz">
-                    <Button fontBig primary>
-                      <ButtonItems>
-                        <ButtonItem>{Icon2}</ButtonItem>
-                        <ButtonItem>{buttonLabel2}</ButtonItem>
-                      </ButtonItems>
-                    </Button>
-                  </Link>
+                  <>
+                    <Link to="/dataviz">
+                      <Button fontBig primary>
+                        <ButtonItems>
+                          <ButtonItem>{Icon2}</ButtonItem>
+                          <ButtonItem>{buttonLabel2}</ButtonItem>
+                        </ButtonItems>
+                      </Button>
+                    </Link>
+                  </>
                 ) : (
                   <a
                     href={btnLink2}
