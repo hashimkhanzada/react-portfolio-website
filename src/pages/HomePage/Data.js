@@ -467,7 +467,7 @@ export const dataVisualizer = {
   buttonLabel: "Source Code",
   buttonLabel2: "Live Demo",
   btnLink1:
-    "https://github.com/hashimkhanzada/react-portfolio-website/tree/master/src/pages/DataVisualizerPage",
+    "https://github.com/hashimkhanzada/react-portfolio-website/tree/older-version/src/pages/DataVisualizerPage",
 
   imgStart: "",
 
