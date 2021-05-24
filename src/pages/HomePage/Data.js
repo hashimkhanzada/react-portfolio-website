@@ -32,13 +32,13 @@ export const aboutMeSection = {
   skills: true,
   techsUsed: false,
   AboutMeHeader: "ABOUT ME",
-  headline: "Full-stack .NET developer",
+  headline: "Full-stack Developer",
   description:
     "Software engineering graduate of UCOL, with a passion for developing exciting software.",
   description2:
-    "A fast learner with strong time management and problem solving skills. I've successfully worked on multiple team projects during my degree, using agile based methodologies and DevOps tools, where communication skills and teamwork is essential. ",
+    "A fast learner with strong time management and problem solving skills. I've successfully worked on multiple team projects, using agile based methodologies and DevOps tools, where communication skills and teamwork is essential. ",
   buttonLabel: "View Resume",
-  btnLink1: require("../../images/hashim-khanzada-resume.pdf").default,
+  btnLink1: require("../../images/hashim_khanzada_cv.pdf").default,
   imgStart: "start",
   logoInfo: [
     {
@@ -138,6 +138,7 @@ export const dietTrackerSection = {
   lightTextDesc: false,
   techsUsed: true,
   youtubeVideo: true,
+  extraBtn: true,
   youtubeUrl: "h5HO1Ii3xj8",
   topLine: "Industry Project - sponsored by UCOL",
   headline: "Diet Tracking Software",
@@ -148,8 +149,9 @@ export const dietTrackerSection = {
     "Users can use the in-built nutrient calculator to set goals, view a daily/weekly summary of their intakes, and export summaries in a csv format.",
   description3: "Technologies used:",
   buttonLabel: "Source Code",
-  buttonLabel2: "Demo",
+  buttonLabel2: "View Details",
   btnLink1: "https://github.com/hashimkhanzada/Nutritional_Software",
+  btnLink2: require("../../images/poster_diet_tracker.pdf").default,
   imgStart: "",
   img: require("../../images/food.svg").default,
   logoInfo: [
@@ -184,6 +186,7 @@ export const dietTrackerSection = {
   ],
   start: "",
   Icon: <FaGithub />,
+  Icon2: <FaFilePdf />,
 };
 
 export const countdownClone = {
@@ -227,6 +230,10 @@ export const countdownClone = {
     {
       imgUrl: require("../../images/mongodb-icon.svg").default,
       tipText: "MongoDB",
+    },
+    {
+      imgUrl: require("../../images/redux.svg").default,
+      tipText: "Redux",
     },
   ],
 
