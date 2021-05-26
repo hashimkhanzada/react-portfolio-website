@@ -10,9 +10,9 @@ export const portfolioSection = {
   lightTopLine: false,
   lightText: false,
   lightTextDesc: false,
-  topLine: "Created with React",
+  topLine: "Built with React",
   headline: "My Portfolio Website",
-  description: "A showcase of my projects",
+  description: "A showcase of my projects.",
   buttonLabel: "Source Code",
   btnLink1: "https://github.com/hashimkhanzada/react-portfolio-website",
   imgStart: "",
@@ -103,8 +103,8 @@ export const aboutMeSection = {
       tipText: "Xamarin",
     },
     {
-      imgUrl: require("../../images/vue.svg").default,
-      tipText: "Vue Js",
+      imgUrl: require("../../images/angular.svg").default,
+      tipText: "Angular 2+",
     },
     {
       imgUrl: require("../../images/mongodb-icon.svg").default,
@@ -241,153 +241,6 @@ export const countdownClone = {
   start: "",
   Icon: <FaGithub />,
   Icon2: <AiOutlineShopping />,
-};
-
-export const planStudyOptionsSection = {
-  id: "planStudyOptions",
-  primary: true,
-  lightBg: false,
-  lightTopLine: true,
-  lightText: true,
-  lightTextDesc: true,
-  techsUsed: true,
-  topLine: "WPF | Caliburn Micro",
-  headline: "Plan Study Options",
-  description:
-    "A desktop application to aid UCOL BICT (Bachelor's in ICT) students in planning their study options. Gives students the available list of courses, calculates their credits, and shows them the courses they're eligible for based on the major they choose.",
-  description2:
-    "Uses Caliburn Micro as its MVVM framework, and Simple Container as its dependency injection system. Dapper is used as the ORM. Material Design XAML is used to style the UI components.",
-  description3: "Technologies used:",
-  buttonLabel: "Source Code",
-  btnLink1: "https://github.com/hashimkhanzada/WPF.PlanStudyOptions",
-  imgStart: "",
-  img: require("../../images/books.svg").default,
-
-  logoInfo: [
-    {
-      imgUrl: require("../../images/dotnet.svg").default,
-      tipText: ".Net Core",
-    },
-    {
-      imgUrl: require("../../images/csharp.svg").default,
-      tipText: "C Sharp",
-    },
-    {
-      imgUrl: require("../../images/sql.svg").default,
-      tipText: "SQL Server",
-    },
-    {
-      imgUrl: require("../../images/caliburnmicro.svg").default,
-      tipText: "Caliburn Micro",
-    },
-    {
-      imgUrl: require("../../images/dapper.svg").default,
-      tipText: "Dapper",
-    },
-    {
-      imgUrl: require("../../images/materialdesignxaml.svg").default,
-      tipText: "Material Design XAML",
-    },
-  ],
-  alt: "Skills",
-  start: "",
-  Icon: <FaGithub />,
-};
-
-export const vueApp = {
-  id: "vueApp",
-  primary: false,
-  lightBg: true,
-  lightTopLine: false,
-  lightText: false,
-  lightTextDesc: false,
-  techsUsed: true,
-  youtubeVideo: true,
-  youtubeUrl: "lmg2hHx8lVA",
-  topLine: "VueJs | Vuetify",
-  headline: "Single Page Application",
-  description:
-    "A responsive SPA created with Vue, styled with Vuetify.  " +
-    "It uses firebase google authentication to allow users to sign in with their google account.",
-  description2:
-    "It has an inventory that contains Vue components, allowing the users to perform CRUD operations, using the browsers local storage. ",
-  description3: "Technologies used:",
-  buttonLabel: "Source Code",
-  buttonLabel2: "Demo",
-  btnLink1: "https://dev.azure.com/hashimkhanzada/VueJs",
-  imgStart: "",
-  img: require("../../images/onboard.svg").default,
-
-  logoInfo: [
-    {
-      imgUrl: require("../../images/vue.svg").default,
-      tipText: "Vue Js",
-    },
-    {
-      imgUrl: require("../../images/vuetify.svg").default,
-      tipText: "Vuetify",
-    },
-    {
-      imgUrl: require("../../images/firebase.svg").default,
-      tipText: "Firebase",
-    },
-  ],
-
-  alt: "Skills",
-  start: "",
-  Icon: <SiAzuredevops />,
-};
-
-export const tuckbox = {
-  id: "tuckbox",
-  primary: true,
-  lightBg: false,
-  lightTopLine: true,
-  lightText: true,
-  lightTextDesc: true,
-  techsUsed: true,
-  download: true,
-  youtubeVideo: true,
-  youtubeUrl: "8MQ8BU053t8",
-  topLine: "JAVA | KOTLIN",
-  headline: "TUCKBOX",
-  description:
-    "An android application for placing/managing lunch delivery orders. Uses firebase firestore as its remote database, and ROOM as its ORM.",
-  description2:
-    "Allows users to register/login, place/manage delivery orders, and manage their profiles.",
-  description3: "Technologies used:",
-  buttonLabel: "Download ZIP",
-  buttonLabel2: "Demo",
-  btnLink1: require("../../images/TuckBox.zip").default,
-  imgStart: "",
-  img: require("../../images/phonelogo.svg").default,
-
-  logoInfo: [
-    {
-      imgUrl: require("../../images/java.svg").default,
-      tipText: "Java",
-    },
-    {
-      imgUrl: require("../../images/kotlin.svg").default,
-      tipText: "Kotlin",
-    },
-    {
-      imgUrl: require("../../images/firebase.svg").default,
-      tipText: "Firebase",
-    },
-    {
-      imgUrl: require("../../images/android.svg").default,
-      tipText: "Android",
-    },
-    {
-      imgUrl: require("../../images/materialui.svg").default,
-      tipText: "Material UI",
-    },
-  ],
-
-  alt: "Skills",
-  start: "",
-  Icon: <AiOutlineFileZip />,
 };
 
 export const intercity = {
